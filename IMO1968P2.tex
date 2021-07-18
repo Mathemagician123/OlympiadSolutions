@@ -1,0 +1,9 @@
+Let $x=\overline{a_na_{n-1}\cdots a_1a_0}$. Hence $P(x)=x^2-10x-22$ satisfies
+$$P(x)=a_n\cdot a_{n-1}\cdots a_1\cdot a_0$$
+Observe that $P(x)=a_n\cdot a_{n-1}\cdots a_1\cdot a_0\le a_0\cdot 10^{n-1}\le x$.
+Thus $P(x)\le x$, with equality at a one-digit integer.
+Therefore,
+$$x^2-10x-22\le x$$
+$$x^2-11x-22\le 0$$
+This holds for $x=1,2,...,12$. Clearly if $x\le 11$, $x^2-10x-22\le 0$, impossible.
+Hence $x=12$, which indeed works. 

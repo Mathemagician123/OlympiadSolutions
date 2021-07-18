@@ -1,0 +1,144 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm, bbm}
+\usepackage{booktabs, verbatim, graphicx, framed}
+\usepackage[sexy, hints]{evan}
+\title{Ram Math}
+\author{Anay Aggarwal}
+
+\begin{document}
+
+\maketitle
+\section{Jamboards}
+\href{https://jamboard.google.com/d/1GIAwYaI3D2N-1IsQxEpHmhRcS8Xmtpmddfsv4TQs4aI/viewer?f=0}{Polynomials}
+\section{Polynomials}
+\begin{example}
+  [AMC 12 2017]
+  For certain reals $a,b,c$, the polynomial
+  $$g(x)=x^3+ax^2+x+10$$
+  Has three distinct roots, each of which is also a root of
+  $$f(x)=x^4+x^3+bx^2+100x+c$$
+  Compute $f(1)$
+\end{example}
+\begin{soln}
+  Since the sum of the three roots is $-a$, and the sum of the four roots is $-1$, we know that the last root is $a-1$.
+  We want $102+b+c$. Notice that the product of the three roots is $-10$, hence $c=(a-1)\cdot -10$.
+  If $x_1, x_2, x_3$ are the roots, and $x_4$ is the fourth, then
+  $$b=\sum x_1x_2=x_1x_2+x_2x_3+x_1x_3+x_1x_4+x_2x_4+x_3x_4=1+x_4(x_1+x_2+x_3)=1+(a-1)(-a)$$
+  Note that
+  $$-100=x_1x_2x_3+x_1x_2x_4+x_2x_3x_4+x_1x_3x_4=-10+x_4(x_1x_2+x_2x_3+x_1x_3)=-10+(a-1)$$
+  Thus $a-1=-90\to a=-89$. Putting everything together, the answer is $7007$.
+\end{soln}
+\begin{example}
+  [AMC 12 2010]
+  The graph of $y=x^6-10x^5+29x^4-4x^3+ax^2$ lies above the line $y=bx+c$
+  except at $3$ values of $x$, where they intersect. What's the largest of
+  the three values?
+\end{example}
+\begin{soln}
+  We must have $f(x)=x^6-10x^5+29x^4-4x^3+ax^2-bx-c\ge 0$ for all real $x$. We want the equality cases.
+Note that all $3$ roots must be double roots. Let $p(x)=x^3-ux^2+vx-w$ be the polynomial with the single roots instead of the double roots.
+In other words, $(p(x))^2=f(x)$. Comparing coefficients in the expansion of $(p(x))^2$,
+$$u^2+2v=29$$
+$$2uv+2w=4$$
+$$2u=10\to u=5\to v=2, w=-8$$
+Hence $p(x)=x^3-5x^2+2x+8=(x-4)(x-2)(x+1)$. So equality of the original inequality
+occurs at $4,2,-1$, of which the maximum is $4$.
+\end{soln}
+\begin{example}
+  [AIME 1996]
+  Suppose that the roots of $x^3+3x^2+4x-11=0$ are $a,b,$ and $c$, and that
+  the roots of $x^3+rx^2+sx+t=0$ are $a+b, b+c$, and $a+c$. Find $t$.
+\end{example}
+\begin{soln}
+  Note that
+  $$-t=(a+b)(b+c)(a+c)=(ab+ac+bc+b^2)(a+c)=a^2b+a^2c+abc+ab^2+abc+ac^2+bc^2+b^2c$$
+  $$=(ab+ac+bc)(a+b+c)-abc=4(-3)-11=-23$$
+  Hence $t=23$.
+\end{soln}
+\begin{example}
+  [CMIMC 2018]
+  Let $P(x)=x^2+4x+1$. What is the product of the real roots of
+  $$P(P(x))=0?$$
+\end{example}
+\begin{soln}
+  If $P(P(x))=0$, then $P(x)$ is a root of $x^2+4x+1$. Hence
+  $$P(x)=-2\pm \sqrt{3}$$
+  If $x^2+4x+t$ has real roots, then
+  $$16-4t\ge 0\to t\le 4$$
+  Hence we either have $x^2+4x+3+\sqrt{3}=0$ or $x^2+4x+3-\sqrt{3}=0$.
+  The former is impossible, and the latter has both real roots.
+  Hence the product is $3-\sqrt{3}$.
+\end{soln}
+\begin{example}
+  [PuMAC 2016]
+  Let $f(x)=15x-2016$. If $f(f(f(f(f(x)))))=f(x)$, find the sum of all
+  possible values of $x$.
+\end{example}
+\begin{soln}
+  The given equation is linear, hence there is $1$ solution.
+  Notice that $f(x)=x$ suffices, hence $x=144$.
+\end{soln}
+\begin{example}
+  [HMMT 2014]
+  Find the sum of the real roots of
+  $$5x^4-10x^3+10x^2-5x-11=0$$
+\end{example}
+\begin{soln}
+  Note that
+  $$(x-1)^5=x^5-5x^4+10x^3-10x^2+5x-1$$
+  $$-(x-1)^5=-x^5+5x^4-10x^3+10x^2-5x+1$$
+  $$x^5-(x-1)^5=5x^4-10x^3+10x^2-5x+1$$
+  $$5x^4-10x^3+10x^2-5x-11=x^5-(x-1)^5-12$$
+  Hence
+  $$x^5-(x-1)^5=12$$
+  There is a positive solution and a negative solution.
+  The graph has symmetry at $x=0.5$, hence the answer is $2(0.5)=1$.
+\end{soln}
+\begin{example}
+  [HMMT 2014]
+  Let $b$ and $c$ be real numbers and define the polynomial
+  $P(x)=x^2+bx+c$. Suppose that $P(P(1))=P(P(2))=0$ and that $P(1)\ne P(2)$.
+  Find $P(0)$.
+\end{example}
+\begin{soln}
+  We get
+  $$P(1)P(2)=c$$
+  $$P(1)+P(2)=-b$$
+  But $P(1)=b+c+1, P(2)=2b+c+4$. Hence
+  $$4b+2c+5=0$$
+  $$(b+c+1)(2b+c+4)=c$$
+  Solving, we want $c=-\frac{3}{2}$.
+\end{soln}
+\begin{example}
+  [AIME 2010]
+  Let $P(x)$ be a quadratic with real coefficients satisfying
+  $$x^2-2x+2\le P(x)\le 2x^2-4x+3$$
+  for all real numbers $x$, and suppose $P(11)=181$. Find $P(16)$.
+\end{example}
+\begin{soln}
+  Plugging in $x=1$, we get $1\le P(1)\le 1$, hence $P(1)=1$. In addition, all three parabolas share the same vertex.
+  Thus $P(x)=c(x-1)^2+1$ for some $c$. Plugging $x=11$, $100c+1=181\to c=\frac{9}{5}$ hence the answer is $406$.
+\end{soln}
+\begin{example}
+  [AIME 2007]
+  The polynomial $P(x)$ is cubic. What is the largest value of $k$ for which
+  the polynomials $Q_1(x)=x^2+(k-29)x-k$ and $Q_2(x)=2x^2+(2k-43)x+k$ are
+  both factors of $P(x)$?
+\end{example}
+\begin{soln}
+  $Q_1, Q_2$ must have a common root, say $a$. If $Q_1(a)=0, Q_2(a)=0$, then
+  $$Q_2(a)-2Q_1(a)=15a+3k=0$$
+  Hence $a=-\frac{k}{5}$. Plugging this into $Q_1$, we get the answer is $30$.
+\end{soln}
+\begin{example}
+  [AIME 2015]
+  Let $f(x)\in R[x]$ be a cubic such that
+  $$|f(1)|=|f(2)|=|f(3)|=|f(5)|=|f(6)|=|f(7)|=12$$
+\end{example}
+\begin{soln}
+  Cubics have two bumps, so $f(1)=f(5)=f(6), f(2)=f(3)=f(7), f(4)=0$.
+  Let $f(1)=2$ hence the others are $-12$. The third difference is $12$,
+  hence $f(0)=12+24+24+12=72$.
+\end{soln}
+\end{document}

@@ -1,0 +1,20 @@
+Cool problem.
+
+\textbf{Construction:} Pick $S\subseteq \{1,2,...,2010\}$ with $|S|=1004$. Let $Q$ be the set of elements in $\{1,2,...,2010\}\notin S$. Clearly $|Q|=1006$.
+
+Suppose the said permutations are $b_1, b_2,..., b_{1006}$. For each set $\mathcal{A}_i$, pick $\mathcal{A}_{i_n}$ to be the $n$th element in $\mathcal{A}_i$.
+Pick $b_{i_j}=S_{j-1006}\forall 1007\le j\le 2010$. Define the $k$th \textit{loop} of a permutation of $\{1,...,n\}$ to be some $\{k,...,n,1,...,k-1\}$
+with $n\ge k\ge 1$. Set the first $1006$ elements of $b_i$ to be the $i$th [i]loop[/i] of $Q$.
+
+\textbf{Proof that the construction is valid:} From pigeonhole, there exists an element $\epsilon$ of $Q$ such that $\epsilon$ is in one of 
+$b_{i_j}$ with $1\le j\le 1006$.
+
+But with our construction, in each of the first $1006$ columns of some $b_i$, each of the numbers in $Q$ exists. Since $\epsilon$ is also an element of $Q$,
+    there must be an intersection, so we're done.
+
+\textbf{Remarks:}
+I started with playing around with $1,2,3,4$ but I realized that wasn't good because we want $3$ permutations and $3+1=4$, so we 
+will have some things that won't appear in any other $1,2,...,2n$. Then I played around with $1,2,3,4,5,6$. The solution wasn't actually very hard, 
+you just had to go through enough permutations to realize what was going on. If you wanted to generalize for $1,2,...,2n$, 
+replace each $1004$ with $n-1$, each $1006$ with $n+1$ and each $2010$ with $2n$.
+

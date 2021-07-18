@@ -1,0 +1,14 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm, bbm}
+\usepackage{booktabs, verbatim, graphicx, framed}
+\usepackage[sexy, hints]{evan}
+\title{title}
+\author{Anay Aggarwal}
+
+\begin{document}
+
+\maketitle
+Note that $Q_nQ_{n-2}-Q_{n-1}^2=-1=Q_{n+1}Q_{n-1}Q_n^2$, i.e. The quantity $\frac{Q_{n+1}+Q_{n-1}}{Q_n}$ remains constant as $\frac{Q_0+Q_2}{Q_1}=\frac{1+x^2-1}{x}=x$.  Hence $Q_{n+1}=xQ_n-Q_{n-1}$. I prove that all $Q_i\in \mathbb{Z}[x]$ by induction. The base case is obvious (take the example). This is trivial since the polynomial ring $\mathbb{Z}[x]$ is closed under multiplication and addition, but $+\sim -$, i.e. its closed under subtraction as well -- done.
+
+\end{document}

@@ -1,0 +1,25 @@
+Expanding the given condition and dividing by $2$, we have $a^2+b^2+c^2+ab+ac+bc\le 2~~~~\color{red}(1)$.
+
+From Cauchy Schwarz:
+
+$$\left(\sum_{cyc}\frac{ab+1}{(a+b)^2}\right)\left(\sum_{cyc}(a+b)^2\right)\ge \left(\sum_{cyc}\sqrt{ab+1}\right)^2$$  
+
+Notice that $\sum_{cyc}(a+b)^2=2(a^2+b^2+c^2+ab+bc+ac)\le 4$. 
+
+Thus it suffices to show that $\left(\sum_{cyc}\sqrt{ab+1}\right)^2\le 12$.
+
+From Cauchy Schwarz:
+
+$$\left(3+\sum_{cyc}ab\right)3\ge \left(\sum_{cyc}\sqrt{ab+1}\right)^2$$
+
+\textbf{Lemma:} $a^2+b^2+c^2\ge ab+bc+ac$
+\textbf{Proof:} By AM-GM: $a^2+b^2\ge 2ab$. Summing cyclically yields $2(a^2+b^2+c^2)\ge 2(ab+ac+bc)\implies a^2+b^2+c^2\ge ab+bc+ac$, which is well known to be true.
+
+Combining $\color{red}(1)$ and the lemma, we see that $ab+bc+ac\le 1$. This means that:
+$$\left(3+\sum_{cyc}ab\right)3\le (3+1)3=12$$
+$$\leftrightarrow \left(\sum_{cyc}\sqrt{ab+1}\right)^2\le 12,$$
+as desired. Equality holds when $a=b=c=\frac{1}{\sqrt{3}}$. $\blacksquare$
+
+
+
+POSSIBLY WRONG.

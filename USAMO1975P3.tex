@@ -1,0 +1,9 @@
+Let $Q(k)=(k+1)P(k)-k$. Hence for $k=0,1,2,\cdots, n$, $Q(k)=0$. Therefore, we can let
+$$Q(x)=c\prod_{i=0}^{n}(x-i)$$
+For a constant $c$. Notice that $Q(-1)=1$, hence
+$$-1=c\prod_{i=0}^n (-i-1)=c(-1)^{n+1}(n+1)!$$
+$$c=\frac{1}{(-1)^{n+1}(n+1)!}$$
+And hence $Q(n+1)=\frac{1}{(-1)^{n+1}}=(n+2)P(n+1)-(n+1)$ thus
+$$\boxed{P(n+1)=\frac{n+1+(-1)^{1-n}}{n+2}},$$
+or if you desire a piecewise representation:
+$$\boxed{P(n+1)=\begin{cases}1 & n\equiv 1 \pmod{2} \\ \frac{n}{n+2} & n\equiv 0 \pmod{2}\end{cases}}$$

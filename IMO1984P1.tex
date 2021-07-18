@@ -1,0 +1,29 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm, bbm}
+\usepackage{booktabs, fancyhdr, verbatim, graphicx}
+\usepackage[sexy, hints]{evan}
+\title{Nice Inequality from IMO}
+\author{Anay Aggarwal}
+
+\begin{document}
+
+\maketitle
+\begin{example}
+  [IMO 1984]
+  Prove that $0\le yz+zx+xy-2xyz\le{7\over27}$, where $x,y$ and $z$ are non-negative real numbers satisfying $x+y+z=1$.
+\end{example}
+\begin{soln}
+  For the lower bound, $xy+yz+xz-2xyz=(xy+yz+xz)(x+y+z)-2xyz\ge 0$ upon expansion.
+  For the upper bound,
+  $$2\left(\frac{1}{2}-x\right)\left(\frac{1}{2}-y\right)\left(\frac{1}{2}-z\right)=\frac{1}{4}-\frac{1}{2}(x+y+z)+xy+yz+xz-2xyz$$
+  $$xy+yz+xz-2xyz=\frac{1}{4}+2\prod_{cyc}\left(\frac{1}{2}-x\right)$$
+  Simple AM-GM on the $\frac{1}{2}-x$ terms gives
+  $$\frac{1}{6}\ge \sqrt[3]{\prod_{cyc}\left(\frac{1}{2}-x\right)}$$
+  $$\prod_{cyc}\left(\frac{1}{2}-x\right)\le \frac{1}{216}$$
+  $$xy+yz+xz-2xyz\le \frac{7}{27}$$
+  As desired. AM-GM is allowed, unless suppose that say $x>\frac{1}{2}$.
+  In this case, $xy+yz+xz-2xyz\le \frac{1}{4}$, which we don't care about.
+\end{soln}
+\end{document}
+

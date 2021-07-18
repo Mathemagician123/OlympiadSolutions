@@ -1,0 +1,18 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[sexy, hints]{evan}
+\title{Cuba 2001, Digit Sums}
+\author{Anay Aggarwal}
+\date{July 2021}
+
+\begin{document}
+\maketitle
+\begin{example}
+  [Cuba 2001]
+  Find all numbers of the form $n(2n-1)$ with digit sum $2000$.
+\end{example}
+Notice that digit sum preserves the number mod $9$. But $2000\equiv 2\pmod{9}$.
+Thus
+$$n(2n-1)\equiv 2\pmod{9}$$
+which has no integer solutions (test the residues). Done.
+\end{document}

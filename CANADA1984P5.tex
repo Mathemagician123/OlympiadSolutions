@@ -1,0 +1,13 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\begin{document}
+
+The condition is \newline
+$0\le \tan(x-y)\le \frac{1}{\sqrt{3}}$ \newline
+If $0\le x-y\le 2\pi$, we must have $0\le x\le \frac{\pi}{6}$. \newline Hence $2\pi n\le x-y\le 2\pi n+\frac{\pi}{6}$ for integer $n$. \newline
+Take all numbers modulo $\pi$. We want to show that there must be two such that their positive difference is less than or equal to $\frac{\pi}{6}$. \newline
+Consider the number line from $0$ to $\pi$ partitioned into $6$ segments of length $\frac{\pi}{6}$ \newline
+The Pigeonhole Principle tells us that at least 2 points must be on the same segment i.e. have the desired difference, done.
+
+\end{document}

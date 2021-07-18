@@ -1,0 +1,13 @@
+Problem: 
+
+Find all the three-digit numbers $\overline{abc}$ such that the $6003$-digit number $\overline{abcabc\ldots abc}$ is divisible by $91$.
+
+
+Solution:
+
+Cool problem. Use the shorthand $\overline{abc}=abc$.
+Claim: $91|abc$
+Proof: Write$$abcabc...=abc*100100100...001=abc\sum_{n=0}^{2000}10^{3n}$$Suffices to show that the summation is $0\pmod{91}$.
+Lemma: For odd n, $10^{3n}=-1$ in the 91 residue system
+Proof: Use induction. True for $n=1$. To get from $2k+1$ to $2k+3$, we multiply by $10^6$, which we find as $1$ mod 91, so our induction is complete. $\boxed{}$
+From our lemma, we can square to get that for even $n$, $10^{3n}=1\pmod{91}$. So the sum is essentially $1-1+1-1+1...$. Since there is an odd number of terms, the summation is $\ne 0\pmod{91}$, so we’re done.$\blacksquare$

@@ -1,0 +1,14 @@
+Notice that
+$$1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+...-\frac{1}{1318}+\frac{1}{1319}$$
+$$=\left(\sum_{k=1}^{1319}\frac{1}{k}\right)-2\left(\sum_{k=1}^{659}\frac{1}{2k}\right)$$
+$$=\sum_{k=660}^{1319}\frac{1}{k}$$
+Grouping all terms $\frac{1}{k}+\frac{1}{1979-k}=\frac{1979}{k(1979-k)}$, we see that the numerator must be divisible by $1979$ due to the fact that $1979$ is prime.
+
+
+Stronger version (Titu Andreescu):
+
+For prime $p\equiv 1\pmod{3}$ and $q=\lfloor \frac{2p}{3}\rfloor$, with
+$$\frac{m}{n}=\frac{1}{1*2}+\frac{1}{3*4}+...+\frac{1}{(q-1)q}$$
+then $p|m$.
+
+The proof is identical, with partial fraction decomposition required at the very beginning.

@@ -1,0 +1,7 @@
+Problem: Let there be a fixed positive integer $n$. Find the sum of all integers such that, when represented in base 2, has $2n$ digits, consisting of $n$ ones, and $n$ zeroes.
+
+Solution: If $n=1$ we can easily get that the sum is $2$.
+For $n\ge 2$, the first digit is one, so there are $\binom{2n-1}{n-1}$ ways to put the 1's in the empty slots. Then $\binom{2n-2}{n-2}$, etc.
+So $\binom{2n-1}{n-1}+\binom{2n-2}{n-2}+...=\binom{2n-1}{n}+\binom{2n-2}{n}+...=\binom{2n-1}{n}2^{2n-1}$. Then there is $\binom{2n-2}{n}$ of other powers of $2$.
+The requested result is
+$$\binom{2n-2}{n}(1+2+2^2+...+2^{2n-2})+\binom{2n-1}{n}2^{2n-1}=\boxed{\binom{2n-2}{n}(2^{2n-1}-1)+\binom{2n-1}{n}2^{2n-1}}$$

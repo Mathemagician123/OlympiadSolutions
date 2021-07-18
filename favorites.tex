@@ -1,0 +1,274 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm, bbm}
+\usepackage{booktabs, verbatim, graphicx, framed}
+\usepackage[sexy, hints]{evan}
+\title{My Favorite Olympiad Problems!}
+\author{Anay Aggarwal}
+\begin{document}
+
+\maketitle
+\section{Introduction}
+These are my favorite olympiad problems! I have only done a few, and they are all "beginner" problems.
+\section{Algebra}
+Algebra is the best.
+\begin{example}
+  [IMO SL, 1967]
+  If $x,y,z$ are real numbers satisfying relations
+  \[x+y+z = 1 \quad \textrm{and} \quad \arctan x + \arctan y + \arctan z = \frac{\pi}{4},\]
+  prove that $x^{2n+1} + y^{2n+1} + z^{2n+1} = 1$ holds for all positive integers $n$.
+\end{example}
+\begin{soln}
+  Summing the arctans with the formula,
+
+  $$\arctan\left(\frac{x+y+z-xyz}{1-(xy+yz+xz)}\right)=\frac{\pi}{4}$$
+  $$x+y+z-xyz=1-(xy+yz+xz)$$
+  $$xyz=xy+yz+xz$$
+
+  So $x,y,z$ are roots of $t^3-t^2+kt-k=0$, where $k=xyz=xy+yz+xz$. This factors
+  as $(t^2+k)(t-1)=0$. So the roots are $1, \sqrt{-k}, -\sqrt{-k}$, from which the
+  result comes immediately.
+
+\end{soln}
+\begin{example}
+  [Iran 2007, Round 3]
+  Let $ a,b$ be two complex numbers. Prove that roots of $ z^{4}+az^{2}+b$ form a rhombus with origin as center, if and only if $ \frac{a^{2}}{b}$ is a non-positive real number.
+\end{example}
+\begin{soln}
+  First of all, the vertices are of the form $t, -t, p, -p$. It's a rhombus if and only if $p=rit$ for some real $r$.
+  Notice that there must exist some complex numbers $t, r$ such that
+  $$z^4+az^2+b=(z^2-t^2)(z^2+r^2t^2)$$
+  And then $a=t^2(r^2-1), b=-r^2t^4$. Hence $\frac{a^2}{b}=-\left(\frac{r^2-1}{r}\right)^2$, which is non-positive real
+  if and only if $r\in\mathbb{R}$, i.e. $p=rit$, done.
+
+\end{soln}
+\begin{example}
+  [Putnam 1971]
+  Find all polynomials $f(x)$ such that $f(0)\equiv 0$ and $f(x^2+1)=[f(x)]^2+1$
+\end{example}
+\begin{soln}
+  The answer is only $f\equiv \mathrm{id}$. Let $S$ be the set of numbers $x$ such that $f(x)=x$. It suffices to show that the
+  cardinality of $S$ is infinite.
+
+  Suppose for the sake of contradiction that $S$ has finite cardinality. Due to
+  the fact that $f(0)=0$, $S\ne \emptyset$. Then it is valid to let $k$ be the maximum
+  element found in $S$. Notice that $f(k^2+1)=f(k)^2+1=k^2+1$, thus $k^2+1\in S$, contradiction.
+\end{soln}
+\begin{example}
+  [USAMO 1975]
+  If $ P(x)$ denotes a polynomial of degree $ n$ such that $ P(k)=\frac{k}{k+1}$ for $ k=0,1,2,\ldots,n$, determine $ P(n+1)$.
+\end{example}
+\begin{soln}
+  Let $Q(k)=(k+1)P(k)-k$. Hence for $k=0,1,2,\cdots, n$, $Q(k)=0$. Therefore, we can let
+  $$Q(x)=c\prod_{i=0}^{n}(x-i)$$
+  For a constant $c$. Notice that $Q(-1)=1$, hence
+  $$-1=c\prod_{i=0}^n (-i-1)=c(-1)^{n+1}(n+1)!$$
+  $$c=\frac{1}{(-1)^{n+1}(n+1)!}$$
+  And hence $Q(n+1)=\frac{1}{(-1)^{n+1}}=(n+2)P(n+1)-(n+1)$ thus
+  $$\boxed{P(n+1)=\frac{n+1+(-1)^{1-n}}{n+2}},$$
+  or if you desire a piecewise representation:
+  $$\boxed{P(n+1)=\begin{cases}1 & n\equiv 1 \pmod{2} \\ \frac{n}{n+2} & n\equiv 0 \pmod{2}\end{cases}}$$
+\end{soln}
+\begin{example}
+  [IMO 1963]
+  Prove that $\cos{\frac{\pi}{7}}-\cos{\frac{2\pi}{7}}+\cos{\frac{3\pi}{7}}=\frac{1}{2}$.
+\end{example}
+\begin{soln}
+  Let $\omega=\mathrm{cis}\left(\frac{\pi}{14}\right)$. Thus it suffices to show that $\omega+\omega^{-1}-\omega^2-\omega^{-2}+\omega^3+\omega^{-3}=1$. Now using the fact that $\omega^k=\omega^{14+k}$ and $-\omega^2=\omega^9$, this is equivalent to\[\omega+\omega^3+\omega^5+\omega^7+\omega^9+\omega^{11}+\omega^{13}-\omega^7\]\[\omega\left(\frac{\omega^{14}-1}{\omega^2-1}\right)-\omega^7\]But since $\omega$ is a $14$th root of unity, $\omega^{14}=1$. The answer is then $-\omega^{7}=1$, as desired.
+\end{soln}
+\begin{example}
+  [JMMO]
+  Let $x$, $y$ and $z$ be positive real numbers such that $x+y+z = 1$. Prove the inequality:
+
+  $$\frac{x^2}{1+y}+\frac{y^2}{1+z} +\frac{z^2}{1+x} \leq 1$$
+\end{example}
+\begin{soln}
+  Notice that $x<1-y<1+y$, hence $\frac{x}{1+y}\le 1\to \frac{x^2}{1+y}\le x$. Summing cyclically yields the desired result.
+\end{soln}
+\begin{example}
+  [IMO 1984]
+  Prove that $0\le yz+zx+xy-2xyz\le{\frac{7}{27}}$, where $x,y$ and $z$ are non-negative real numbers satisfying $x+y+z=1$.
+\end{example}
+\begin{soln}
+  For the lower bound, $xy+yz+xz-2xyz=(xy+yz+xz)(x+y+z)-2xyz\ge 0$ upon expansion.
+  For the upper bound,
+  $$2\left(\frac{1}{2}-x\right)\left(\frac{1}{2}-y\right)\left(\frac{1}{2}-z\right)=\frac{1}{4}-\frac{1}{2}(x+y+z)+xy+yz+xz-2xyz$$
+  $$xy+yz+xz-2xyz=\frac{1}{4}+2\prod_{cyc}\left(\frac{1}{2}-x\right)$$
+  Simple AM-GM on the $\frac{1}{2}-x$ terms gives
+  $$\frac{1}{6}\ge \sqrt[3]{\prod_{cyc}\left(\frac{1}{2}-x\right)}$$
+  $$\prod_{cyc}\left(\frac{1}{2}-x\right)\le \frac{1}{216}$$
+  $$xy+yz+xz-2xyz\le \frac{7}{27}$$
+  As desired. AM-GM is allowed, unless suppose that say $x>\frac{1}{2}$.
+  In this case, $xy+yz+xz-2xyz\le \frac{1}{4}$, which we don't care about.
+\end{soln}
+\begin{example}
+  [Kyrgyzstan]
+  Find all functions $f:\mathbb{R}\to \mathbb{R}$ such that
+  $$f(f(x)^2+f(y))=xf(x)+y$$
+\end{example}
+\begin{soln}
+  Asserting $P(0,0)$, there must be some $a$ such that $f(a)=0$.
+  Hence assert $P(a,0)$ to get
+  $$f(f(y))=y$$
+  Thus $f$ is an involution and thus a bijection (well-known, easy to prove).
+  Assert $P(f(b), y)$. We then get
+  $$f(b^2+f(y))=bf(b)+y$$
+  Assert $P(b,y)$. We then get
+  $$f(f(b)^2+f(y))=bf(b)+y=f(b^2+f(y))$$
+  Remembering that $f$ is a bijection, $[f(b)]^2=b^2$. Hence $f(b)=\pm b$.
+  Unfortunately, we now run into the pointwise trap.
+  Suppose that $f(x)=x$ and $f(y)=-y$. Thus
+  $$f(x^2-y)=x^2+y$$
+  Since $f(b)=\pm b$, then $y=0\to f(y)=0=y$, or $x=0\to f(x)=0=-x$.
+  The alternative case is isomorphic.
+\end{soln}
+\section{Combinatorics}
+Combinatorics is both the life and death of me.
+\begin{example}
+  [Canada]
+  Let there be a fixed positive integer $n$. Find the sum of all integers such that, when represented in base 2, has $2n$ digits, consisting of $n$ ones,
+  and $n$ zeroes.
+\end{example}
+\begin{soln}
+  If $n=1$ we can easily get that the sum is $2$.
+  For $n\ge 2$, the first digit is one, so there are $\binom{2n-1}{n-1}$ ways to put the 1's in the empty slots. Then $\binom{2n-2}{n-2}$, etc.
+  So $\binom{2n-1}{n-1}+\binom{2n-2}{n-2}+...=\binom{2n-1}{n}+\binom{2n-2}{n}+...=\binom{2n-1}{n}2^{2n-1}$. Then there is $\binom{2n-2}{n}$ of other powers of $2$.
+  The requested result is
+  $$\binom{2n-2}{n}(1+2+2^2+...+2^{2n-2})+\binom{2n-1}{n}2^{2n-1}=\boxed{\binom{2n-2}{n}(2^{2n-1}-1)+\binom{2n-1}{n}2^{2n-1}}$$
+\end{soln}
+\begin{example}
+  [USAJMO 2010]
+  Two permutations $a_1,a_2,\dots,a_{2010}$ and $b_1,b_2,\dots,b_{2010}$ of the numbers $1,2,\dots,2010$ are said to intersect if $a_k=b_k$ for some value of $k$ in the range $1\le k\le 2010$. Show that there exist $1006$ permutations of the numbers $1,2,\dots,2010$ such that any other such permutation is guaranteed to intersect at least one of these $1006$ permutations.
+\end{example}
+\begin{soln}
+  \textbf{Construction:} Pick $S\subseteq \{1,2,...,2010\}$ with $|S|=1004$. Let $Q$ be the set of elements in $\{1,2,...,2010\}\notin S$. Clearly $|Q|=1006$.
+
+  Suppose the said permutations are $b_1, b_2,..., b_{1006}$. For each set $\mathcal{A}_i$, pick $\mathcal{A}_{i_n}$ to be the $n$th element in $\mathcal{A}_i$.
+  Pick $b_{i_j}=S_{j-1006}\forall 1007\le j\le 2010$. Define the $k$th \textit{loop} of a permutation of $\{1,...,n\}$ to be some $\{k,...,n,1,...,k-1\}$
+  with $n\ge k\ge 1$. Set the first $1006$ elements of $b_i$ to be the $i$th \textit{loop} of $Q$.
+
+  \textbf{Proof that the construction is valid:} From pigeonhole, there exists an element $\epsilon$ of $Q$ such that $\epsilon$ is in one of
+  $b_{i_j}$ with $1\le j\le 1006$.
+
+  But with our construction, in each of the first $1006$ columns of some $b_i$, each of the numbers in $Q$ exists. Since $\epsilon$ is also an element of $Q$,
+  there must be an intersection, so we're done.
+\end{soln}
+\section{Number Theory}
+Number theory is not my favorite due to the casework, but there are some nice ones here and there.
+\begin{example}
+  [IMO 2006]
+  Determine all pairs $(x, y)$ of integers such that\[1+2^{x}+2^{2x+1}= y^{2}.\]
+\end{example}
+\begin{soln}
+  Factoring,
+  $$2^x(1+2^{x+1})=(y+1)(y-1)$$
+  This implies that one of $y+1, y-1$ has $\nu_2$ less than or equal to $1$.
+  Hence $y=2^{x-1}a+b$ for odd $a$ and $b^2=1$. Hence
+  $$2^{x-2}(a^2-8)=1-ab$$
+  Clearly $b=-1$, so
+  $$2^{x-2}(a^2-8)=a+1$$
+  This is a finite check since the LHS grows much faster in $a$ than the RHS.
+  The solutions then are $(0,\pm 2)$ and $(4,\pm 23)$.
+\end{soln}
+\begin{example}
+  [Putnam 1969]
+  Let n be a positive integer such that $24|(n+1)$. Prove that the sum
+  of all divisors of $n$ is also divisible by $24$
+\end{example}
+\begin{soln}
+  Note that $n\equiv -1\pmod{24}$, $n$ can't be a square. So any $d|n$ satisfies $d\equiv 1,2\pmod{3}$
+  and $d\equiv 1,3,5,7\pmod{8}$. In $d, \frac{n}{d}$ one is $1$ and the other is $2$ mod 3.
+  Hence the possibilities are
+  $$d\equiv 1, \frac{n}{d}\equiv 2\pmod{3}$$
+  $$d\equiv 1, \frac{n}{d}\equiv 7\pmod{8}$$
+  $$d\equiv 3, \frac{n}{d}\equiv 5\pmod{8}$$
+  Hence the sum is always $0\pmod{3}$ and $0\pmod{8}$, i.e. $0\pmod{24}$.
+\end{soln}
+\begin{example}
+  [IMO 1989]
+  Prove that for each positive integer $ n$ there exist $ n$ consecutive positive integers none of which is an integral power of a prime number.
+\end{example}
+\begin{soln}
+  I present three solutions. The first is the beautiful one. The second is the more obvious one after doing high-level math. The third is a construction, suggested by the user dblues on AoPS, and proven by the user ComplexPhi
+  \begin{itemize}
+    \item Take some $x$ such that
+      $$x\equiv -i\pmod{p_iq_i}$$
+      For $1\le i\le n$ and distinct primes $p_i, q_i$. There exists a solution by CRT. So take $x+1, x+2, \cdots, x+n$.
+      Each is divisible by two distinct primes, so it can't be a perfect power of a prime.
+    \item It suffices to prove that the density of $p^k$ for prime $p$ in $\mathbb{Z}$ is $0$.
+      This is a very weak statement, since by the prime density theorem, the density of \textit{the primes themselves} is $0$ in $\mathbb{Z}$, done.
+    \item Consider the set of $n$ integers $\{ [(n+1)!]^2 + 2, [(n+1)!]^2 + 3, \ldots , [(n+1)!]^2 + (n+1) \}$. Let's assume that one of the numbers is the power of a prime.
+      Let it be $[(n+1)!]^2+i=p^k$ with $p$ prime and $2\leq i\leq n+1$.
+      From this we get that $i$ divides $p^k$ so $i=p^l$ with $l\geq 1$.
+      So $p\leq i\leq n+1$. Obviously $k=v_p([(n+1)!]^2+i)=\min(v_p([(n+1)!]^2),v_p(i))=v_p(i)=l$
+      $i=p^l=p^k=[(n+1)!]^2+i$ a contradiction.
+
+  \end{itemize}
+\end{soln}
+\begin{example}
+  [USAMO 2003]
+  Prove that for every positive integer $n$ there exists an $n$-digit number divisible by $5^n$ all of whose digits are odd.
+\end{example}
+\begin{soln}
+  I claim that the possible $m$ for $n+1$ is just the $m$ for $n$ with a new odd digit at the beginning. This sufficiently solves the problem (obviously $5^n$ is $\le$ n digits otherwise 5 is larger than 9).
+  To prove this, we use induction. The base case is easy, for $n=1$, we can use $m=5$. Then the new number is $(2k+1)\cdot 10^{n-1}+a\cdot 5^{n-1}=5^{n-1}\cdot ((2k+1)2^{n-1}+a)$, so we just need to show that there exists some $k$ such that $(2k+1)2^{n-1}+a\equiv 0\pmod{5}$ for some fixed a.
+  Or rephrased, $(2k+1)2^r\equiv t\pmod{5}$ has solutions for $k$ for any $t,r$. This is true since the odd digits are complete $\pmod{5}$, so we're done
+\end{soln}
+\begin{example}
+  [IMO 1979]
+  If $p$ and $q$ are natural numbers so that\[ \frac{p}{q}=1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+ \ldots -\frac{1}{1318}+\frac{1}{1319}, \]prove that $p$ is divisible with $1979$.
+\end{example}
+\begin{soln}
+  Notice that
+  $$1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+...-\frac{1}{1318}+\frac{1}{1319}$$
+  $$=\left(\sum_{k=1}^{1319}\frac{1}{k}\right)-2\left(\sum_{k=1}^{659}\frac{1}{2k}\right)$$
+  $$=\sum_{k=660}^{1319}\frac{1}{k}$$
+  Grouping all terms $\frac{1}{k}+\frac{1}{1979-k}=\frac{1979}{k(1979-k)}$, we see that the numerator must be divisible by $1979$ due to the fact that $1979$ is prime.
+
+
+  Stronger version (Titu Andreescu):
+
+  For prime $p\equiv 1\pmod{3}$ and $q=\lfloor \frac{2p}{3}\rfloor$, with
+  $$\frac{m}{n}=\frac{1}{1*2}+\frac{1}{3*4}+...+\frac{1}{(q-1)q}$$
+  then $p|m$.
+
+  The proof is identical, with partial fraction decomposition required at the very beginning.
+\end{soln}
+\begin{example}
+  [USAMO 1972]
+  Prove that $\forall a,b,c\in\mathbb{Z}^{+}$,
+  $$\frac{\gcd(a,b,c)^2}{\gcd(a,b)\gcd(b,c)\gcd(a,c)}=\frac{\mathrm{lcm}(a,b,c)^2}{\mathrm{lcm}(a,b)\mathrm{lcm}(a,c)\mathrm{lcm}(b,c)}$$
+\end{example}
+\begin{soln}
+  We use p-adics. It's clear that if $\nu_p(LHS)=\nu_p(RHS)$ for all primes $p$, $LHS=RHS$.
+  Pick an arbitrary prime $p$. Suppose that $\nu_p(a)\le \nu_p(b)\le \nu_p(c)$. Hence we get
+  $$\nu_p(LHS)=\frac{\nu_p(a)^2}{\nu_p(a)\nu_p(b)\nu_p(a)}=\frac{1}{\nu_p(b)}$$
+  $$\nu_p(RHS)=\frac{\nu_p(c)^2}{\nu_p(b)\nu_p(c)\nu_p(c)}=\frac{1}{\nu_p(b)}$$
+  As desired.
+\end{soln}
+\section{Geometry}
+I'm not great at geometry, but here we go.
+\begin{example}
+  [Baltic Way 2000]
+  Prove that for all positive real numbers $a,b,c$ we have
+  $$\sqrt{a^2-ab+b^2}+\sqrt{b^2-bc+c^2}\ge\sqrt{a^2+ac+c^2}$$
+\end{example}
+\begin{soln}
+  Let $ABCD$ be a convex quadrilateral. Construct $ABCD$ such that $\angle ADB=60, \angle BDC=60, AD=a, BD=b, CD=c$. By the Law of Cosines:
+  $$\triangle ADC\to AC=\sqrt{a^2+ac+c^2}$$
+  $$\triangle BDC\to BC=\sqrt{b^2-bc+c^2}$$
+  $$\triangle ADB\to AB=\sqrt{a^2-ab+c^2}$$
+  And by the triangle inequality in $\triangle ABC$,
+  $$\sqrt{a^2-ab+b^2}+\sqrt{b^2-bc+c^2}\ge\sqrt{a^2+ac+c^2}$$
+  We are done because the quadrilateral is clearly always constructible for any $a,b,c>0$.
+\end{soln}
+\begin{example}
+  [JBMO 2019]
+  Triangle $ABC$ is such that $AB < AC$. The perpendicular bisector of side $BC$ intersects lines $AB$ and $AC$ at points $P$ and $Q$, respectively. Let $H$ be the orthocentre of triangle $ABC$, and let $M$ and $N$ be the midpoints of segments $BC$ and $PQ$, respectively. Prove that lines $HM$ and $AN$ meet on the circumcircle of $ABC$.
+
+\end{example}
+\begin{soln}
+  There is a spiral similarity sending $\triangle BMH$ to $\triangle QNA$, so $\angle BMH=\angle QNA$ and $\angle HMC=90-\angle BMH=90-\angle QNA$, thus $HM\perp NA$ and so $AN$ is a tangent to the circumcircle of $ABC$ at which it meets $MA$, as desired.
+\end{soln}
+\end{document}
+

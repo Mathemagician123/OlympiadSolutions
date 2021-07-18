@@ -1,0 +1,25 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[sexy, hints]{evan}
+\title{A Nice Baltic Way Problem}
+\author{Anay Aggarwal}
+
+\begin{document}
+
+\maketitle
+
+\begin{example}
+  [Baltic Way 2000]
+  Prove that for all positive real numbers $a,b,c$ we have
+  $$\sqrt{a^2-ab+b^2}+\sqrt{b^2-bc+c^2}\ge\sqrt{a^2+ac+c^2}$$
+\end{example}
+
+Let $ABCD$ be a convex quadrilateral. Construct $ABCD$ such that $\angle ADB=60, \angle BDC=60, AD=a, BD=b, CD=c$. By the Law of Cosines:
+$$\triangle ADC\to AC=\sqrt{a^2+ac+c^2}$$
+$$\triangle BDC\to BC=\sqrt{b^2-bc+c^2}$$
+$$\triangle ADB\to AB=\sqrt{a^2-ab+c^2}$$
+And by the triangle inequality in $\triangle ABC$,
+$$\sqrt{a^2-ab+b^2}+\sqrt{b^2-bc+c^2}\ge\sqrt{a^2+ac+c^2}$$
+We are done because the quadrilateral is clearly always constructible for any $a,b,c>0$.
+
+\end{document}

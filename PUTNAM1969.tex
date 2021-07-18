@@ -1,0 +1,26 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm, bbm}
+\usepackage{booktabs, fancyhdr, verbatim, graphicx}
+\usepackage[sexy, hints]{evan}
+\title{Putnam NT??}
+\author{Anay Aggarwal}
+
+\begin{document}
+
+\maketitle
+\begin{example}
+Let n be a positive integer such that $24|(n+1)$. Prove that the sum
+of all divisors of $n$ is also divisible by $24$
+\end{example}
+\begin{soln}
+  Note that $n\equiv -1\pmod{24}$, $n$ can't be a square. So any $d|n$ satisfies $d\equiv 1,2\pmod{3}$
+  and $d\equiv 1,3,5,7\pmod{8}$. In $d, \frac{n}{d}$ one is $1$ and the other is $2$ mod 3.
+  Hence the possibilities are
+  $$d\equiv 1, \frac{n}{d}\equiv 2\pmod{3}$$
+  $$d\equiv 1, \frac{n}{d}\equiv 7\pmod{8}$$
+  $$d\equiv 3, \frac{n}{d}\equiv 5\pmod{8}$$
+  Hence the sum is always $0\pmod{3}$ and $0\pmod{8}$, i.e. $0\pmod{24}$.
+\end{soln}
+\end{document}
+
