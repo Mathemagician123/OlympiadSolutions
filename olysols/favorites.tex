@@ -246,6 +246,42 @@ Number theory is not my favorite due to the casework, but there are some nice on
   $$\nu_p(RHS)=\frac{\nu_p(c)^2}{\nu_p(b)\nu_p(c)\nu_p(c)}=\frac{1}{\nu_p(b)}$$
   As desired.
 \end{soln}
+\begin{example}
+  [Classic]
+  Prove that
+  $$\mu^2(n)=\sum_{d|n}\mu(d)2^{\omega\left(\frac{n}{d}\right)}$$
+  holds $\forall n\in\mathbb{Z}^+$.
+\end{example}
+\begin{soln}
+  \begin{lemma}
+    $\sum_{d|n}|\mu(d)|=2^{\omega(n)}$
+  \end{lemma}
+    Let $n=\prod p_i^{a_i}$. In order for the mobius function to be
+    non-zero, if $d=\prod p_i^{d_i}$, all $d_i<2$. Hence there are two options,
+    0 and 1, to choose each $d_i$. There are $\omega(n)$ such $d_i$, completing
+    the proof.
+  \newline \newline
+  Back to the main problem. Note that $\mu^2(n)=|\mu(n)|$.
+  By symmetry, the summation on the RHS is
+  $$\sum_{d|n}\mu\left(\frac{n}{d}\right)2^{\omega(d)}$$
+  \begin{definition}
+    For two arithmetic functions $f$ and $g$, $(f*g)(n)$ is the convolution
+    of $f$ and $g$, i.e.
+    $$(f*g)(n)=\sum_{d|n}f(d)g\left(\frac{n}{d}\right)$$
+  \end{definition}
+  \noindent Using this definition, we want to prove that
+  $$|\mu(n)|=(\mu * 2^{\omega})(n)$$
+  Using the lemma, this is
+  $$|\mu(n)|=(\mu * (|\mu|*\mathbbm{1}))(n)$$
+  Since the convolution function is commutative and associative,
+  $$|\mu(n)|=((\mu*\mathbbm{1})*|\mu(n)|)(n)$$
+  But the function
+  $$\epsilon_0(n)=(\mu*\mathbbm{1})(n)=\begin{cases}1 & n=1 \\ 0 & \mathrm{else}\end{cases}$$
+  Hence
+  $$(\epsilon_0(n)*|\mu(n)|)(n)=\sum_{d|n}\epsilon_0(d)|\mu\left(\frac{n}{d}\right)|$$
+  Using the piecewise definition of $\epsilon_0$, all terms cancel except the $d=1$ term.
+  This is simply $|\mu(n)|$, as desired.
+\end{soln}
 \section{Geometry}
 I'm not great at geometry, but here we go.
 \begin{example}
