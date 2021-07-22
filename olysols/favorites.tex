@@ -282,6 +282,27 @@ Number theory is not my favorite due to the casework, but there are some nice on
   Using the piecewise definition of $\epsilon_0$, all terms cancel except the $d=1$ term.
   This is simply $|\mu(n)|$, as desired.
 \end{soln}
+\begin{example}
+  [Henry John Stephen Smith]
+  Define the matrix
+  $$A=:[a_{i,j}]_{n\times n}|a_{i,j}=\gcd(i,j)$$
+  Find a closed-form for $\det(A)$.
+\end{example}
+ This is quite a difficult problem. The idea is to reduce the matrix using elementary row operations.
+ \begin{lemma}
+   [The Algorithm]
+   Consider the algorithm as follows: For each $1\le i\le n$, subtract each row $R_{ik}$ by $R_i$ with $1<k$ and $ik\le n$.
+   When this algorithm is run on the matrix $A$ to become $A'$, $A'$ is an upper triangular matrix.
+ \end{lemma}
+ To prove this lemma, we simply need to show that $a_{ij}=0$ whenever $j<i$ in the new matrix. Notice that for each $d|j, d<i$ we are subtracting
+  $a_{id}$ from $a_{ij}$. Using this, it's easy to see that the lemma is true.
+ \begin{lemma}
+   Each $a_{k,k}=\varphi(k)$ after the algorithm has been run.
+ \end{lemma}
+  Notice that $\gcd(k,k)=k$, so the element was originally just $k$. It's easy to see that the algorithm spits out what is essentially
+  the definition of the totient function.
+ \newline \newline
+  Using the two lemmas, the determinant is simply $\varphi(1)\varphi(2)\cdots\varphi(n)$.
 \section{Geometry}
 I'm not great at geometry, but here we go.
 \begin{example}
