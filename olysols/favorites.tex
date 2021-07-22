@@ -153,6 +153,40 @@ Combinatorics is both the life and death of me.
   But with our construction, in each of the first $1006$ columns of some $b_i$, each of the numbers in $Q$ exists. Since $\epsilon$ is also an element of $Q$,
   there must be an intersection, so we're done.
 \end{soln}
+\begin{example}
+  [2020 ISL]
+  Let $n$ be a positive integer. Find the number of permutations $a_1$, $a_2$, $\dots a_n$ of the
+  sequence $1$, $2$, $\dots$ , $n$ satisfying
+  $$a_1 \le 2a_2\le 3a_3 \le \dots \le na_n$$.
+\end{example}
+\begin{soln}
+  The answer is the $n+1$th Fibonacci number. I prove this with strong induction.
+  Let there be $P(n)$ ways for a sequence of $n$ numbers.
+  The base cases are easy since
+  $$P(1)=|\{1\}|=1=F_2$$
+  $$P(2)=|\{1,2\}, \{2,1\}|=2=F_3$$
+  We do casework on the index of $n$. If $n$ is at the last position, there are
+  $P(n-1)$ ways. If $n$ is at the second-to-last position, $n-1$ must be at the
+  last position, hence there are $P(n-2)$ ways. I now prove that $n$ cannot be
+  at any other position, effectively solving the problem.
+  \newline \newline
+  Suppose the contrary. Clearly, $n$ cannot be at the first position.
+  Hence there is a valid sequence of the first $k$ numbers, then $n$,
+  then a jumble of the other numbers. Consider the number $k+1$.
+  Let's say its at index $r$. Then
+  $$n(k+1)\le (k+1)r$$
+  $$n\le r$$
+  $$r=n$$
+  Hence $k+1$ is the last number. Suppose that the number at index $n-1$ is
+  $r$. Thus
+  $$(n-1)r\le(k+1)n$$
+  But $k+2\le r$, hence
+  $$(k+2)(n-1)\le (k+1)n$$
+  $$nk+2n-k-2\le nk+n$$
+  $$n\le k+2$$
+  Meaning that there are at least $n-2$ numbers before the number $n$,
+  i.e. $n$ is at one of the last two spots, as desired.
+\end{soln}
 \section{Number Theory}
 Number theory is not my favorite due to the casework, but there are some nice ones here and there.
 \begin{example}
