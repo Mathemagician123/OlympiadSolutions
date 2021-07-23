@@ -187,6 +187,21 @@ Combinatorics is both the life and death of me.
   Meaning that there are at least $n-2$ numbers before the number $n$,
   i.e. $n$ is at one of the last two spots, as desired.
 \end{soln}
+\begin{example}
+  [IMO 2021 P5]
+  Two squirrels, Bushy and Jumpy, have collected 2021 walnuts for the winter. Jumpy numbers the walnuts from 1 through 2021, and digs 2021 little holes in a circular pattern in the ground around their favourite tree. The next morning Jumpy notices that Bushy had placed one walnut into each hole, but had paid no attention to the numbering. Unhappy, Jumpy decides to reorder the walnuts by performing a sequence of 2021 moves. In the $k$-th move, Jumpy swaps the positions of the two walnuts adjacent to walnut $k$. Prove that there exists a value of $k$ such that, on the $k$-th move, Jumpy swaps some walnuts $a$ and $b$ such that $a<k<b$.
+\end{example}
+\begin{soln}
+  Let's suppose that Jumpy is hungry and eats every walnut they swap the neighbors of before they swap them. Notice that we want to show that
+  Jumpy swaps some uneaten walnut with some eaten walnut at some point in time (assume an eaten walnut is just the crumbs).
+  Assume the contrary, i.e. they always swaps some two walnuts of the same status.
+  \begin{lemma}
+    Swapping two walnuts of the same status preserves the number of pairs of adjacent uneaten walnuts.
+  \end{lemma}
+  This is obvious since swapping two walnuts of the same status doesn't change anything about the statuses at each index at all.
+  \newline \newline
+  Now, the number of pairs of adjacent uneaten walnuts can't remain the same throughout, so we must have swapped an eaten one with an uneaten one.
+\end{soln}
 \section{Number Theory}
 Number theory is not my favorite due to the casework, but there are some nice ones here and there.
 \begin{example}
@@ -360,6 +375,29 @@ I'm not great at geometry, but here we go.
 \end{example}
 \begin{soln}
   There is a spiral similarity sending $\triangle BMH$ to $\triangle QNA$, so $\angle BMH=\angle QNA$ and $\angle HMC=90-\angle BMH=90-\angle QNA$, thus $HM\perp NA$ and so $AN$ is a tangent to the circumcircle of $ABC$ at which it meets $MA$, as desired.
+\end{soln}
+\begin{example}
+  [USA TST 2010]
+  Let $h_a, h_b, h_c$ be the lengths of the altitudes of a triangle $ABC$ from
+  $A,B,C$ respectively. Let $P$ be any point inside the triangle. Show that
+  $$\sum_{cyc}\frac{PA}{h_b+h_c}\ge 1$$
+\end{example}
+\begin{soln}
+  Notice that $h_b=\frac{2[ABC]}{b}$, etc. Hence the inequality is
+  $$\sum_{cyc}\frac{PA}{\frac{1}{b}+\frac{1}{c}}\ge 2[ABC]$$
+  $$\sum_{cyc}PA\frac{bc}{b+c}\ge 2[ABC]$$
+  Let $x=d(P, AC), y=d(P, AB), z=d(P, BC)$. This implies that
+  $$2[ABC]=xb+yc+za$$
+  By the key lemma in the proof of Erdos-Mordell (I think the name is Mordell lemma),
+  $$PAa\ge xb+yc, xc+yb$$
+  Adding yields
+  $$PA\ge \frac{(x+y)(b+c)}{2a}$$
+  $$\sum_{cyc}PA\frac{bc}{b+c}\ge \sum_{cyc}\frac{(x+y)bc}{2a}$$
+  But notice that
+  $$\sum_{cyc}\frac{xbc+ybc}{2a}=\frac{1}{2}\sum_{cyc}xb\frac{c}{a}+yc\frac{b}{a}$$
+  But
+  $$\sum_{cyc}xb\left(\frac{c}{a}+\frac{a}{c}\right)\ge 2\sum_{cyc}xb$$
+  by AM-GM. This directly implies the result.
 \end{soln}
 \end{document}
 
