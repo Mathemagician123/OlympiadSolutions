@@ -352,6 +352,40 @@ Number theory is not my favorite due to the casework, but there are some nice on
   the definition of the totient function.
  \newline \newline
   Using the two lemmas, the determinant is simply $\varphi(1)\varphi(2)\cdots\varphi(n)$.
+  \newpage
+  \begin{example}
+    Let $a_1, a_2, \cdots, a_{2n+1}$ be a set of integers such that if any one
+    of them is removed, the remaining ones can be divided into two sets of
+    $n$ integers with equal sums. Prove that $a_1=a_2=\cdots=a_{2n+1}$.
+  \end{example}
+  \begin{soln}
+    I will use a (questionable) version of infinite descent. All sums in this solution
+    are from $1$ to $2n+1$.
+    \\ \\
+    Notice that for all $1\le i\le 2n+1$,
+    $$2|\left(\sum a_k\right)-a_i$$
+    Thus $a_i$ remains constant modulo $2$.
+    If $a_1\equiv 0\pmod{2}$, then let $a_i=2b_i$ for all $i$.
+    Using the fact that the sum of any set of numbers is now even, we get that
+    $$4|2\left(\sum b_k\right)-2b_i$$
+    $$2|\left(\sum b_k\right)-b_i$$
+    Which is identical to our equation for $a_n$. Thus it suffices to deal with
+    the odd numbers. I will prove that we can find an infinitely large $t$ such
+    that $a_i$ is constant mod $t$. In the even case, we just add a factor of
+    $2$ to $t$. So it suffices to show that the odd case lets us add some factor
+    onto $t$ (this is the questionable part \-\- I'm pretty sure it works but is hard to explain).
+    \\ \\
+    Onto the odd case. Let $a_i=2b_i+1$ for all $i$. If the sum is $S$,
+    $$2S=2\sum b_k+2n+1-2b_i-1=2\left(\sum b_k+n-b_i\right)$$
+    Hence
+    $$S=\sum b_k +n-b_i$$
+    For all $i$. Suppose $S$ is the sum of $r$ elements of the $a$ sequence. If $r$ is odd, $S$ is odd. If $r$ is even, $S$ is even (since $a_i$ is always odd).
+    But $\sum b_k$ is odd, $b_i$ is odd, hence $S\equiv r\equiv n\pmod{2}$. If $n$ is even, then $\sum b_k-b_i$ is even, hence we get back to square one,
+    which is a good thing since we're descending. If $n$ is odd, then $\sum b_k -b_i$ is even, and we're again back to square one!
+    \\ \\
+    \textbf{Conclusion: } At each stage of this simplifiication, we add on a factor of two. Hence for any positive integer $k$,
+    $a_i$ is constant mod $2^k$. Choose some $k>\max(a_1, a_2,\cdots, a_{2n+1})$, then $a_i\pmod{2^k}=a_i$, thus $a_i$ itself is constant, done.
+  \end{soln}
 \section{Geometry}
 I'm not great at geometry, but here we go.
 \begin{example}
@@ -398,6 +432,32 @@ I'm not great at geometry, but here we go.
   But
   $$\sum_{cyc}xb\left(\frac{c}{a}+\frac{a}{c}\right)\ge 2\sum_{cyc}xb$$
   by AM-GM. This directly implies the result.
+\end{soln}
+\begin{example}
+  [Tied Circles]
+  Let $ABCD$ be a cyclic quadrilateral and denote $P$ its intersection of
+  diagonals. Let circle $\omega$ passing through $A$ and $B$ intersect segments
+  $PC, PD$ at $X,Y$ respectively. Prove that $XY$ is parallel to $CD$.
+\end{example}
+\begin{soln}
+  Here is a beautiful, concise solution.
+  \newline \newline
+  Notice that
+  $$\angle PYX=\angle PAB=\angle CDP$$
+  $$\angle PXY=\angle ABY=\angle PCD$$
+  Which directly implies the result. The equivalences come due to the cyclic
+  $ABXY, ABCD$.
+\end{soln}
+\begin{example}
+  [Shargyin 2012]
+  On side $AC$ of triangle $ABC$ an arbitrary point is selected $D$. The tangent in $D$ to the circumcircle of triangle $BDC$ meets $AB$ in point $C_{1}$; point $A_{1}$ is defined similarly. Prove that $A_{1}C_{1}\parallel AC$.
+\end{example}
+\begin{soln}
+  Note that $\angle BAD$ subtends arc $BD$, and $DA_1$ is a tangent,
+  so $\angle A=\angle BAD=\angle BDA_1$. Similarly, $\angle BDC=\angle C$.
+  Hence $\angle CA_1D+\angle B=\angle A+\angle B+\angle C=180$, thus
+  $BA_1DC_1$ is cyclic. Hence $\angle BCA_1=A$ and $\angle BA_1C=\angle C$,
+  implying the result exactly the same way as the previous problem.
 \end{soln}
 \end{document}
 
