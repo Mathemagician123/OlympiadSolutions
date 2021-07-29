@@ -500,5 +500,22 @@ I'm not great at geometry, but here we go.
   and likewise $\angle EYZ+\angle EWZ=90$. This implies that $XYZW$ is cyclic,
   as desired.
 \end{soln}
+\begin{example}
+  [IMO 2020]
+  In convex quadrilateral $ABCD$,
+  $$\angle PAD:\angle PBA:\angle DPA=1:2:3=\angle CBP:\angle BAP:\angle BPC$$
+  Prove that angle bisector of $\angle PDA$, angle bisector of $\angle PCB$, and perpendicular bisector
+  of $AB$ all concur.
+\end{example}
+\begin{soln}
+  Let $\angle PAD=\alpha$. Let $\angle CBP=\beta$. Draw $P$ to $AD$ at $x$
+  such that $\angle XPA=\alpha$. Hence $\angle PXD=2\alpha$. Thus
+  $\triangle PXA, \triangle PXD$ are isosceles. Thus $\triangle PAD$ is isosceles.
+  Thus the angle bisector is the perpendicular bisector of $PX$.
+  Also note that $AXPB$ is cyclic. Hence the intersection of the bisector and
+  perpendicular bisector of $AB$ is the center of the circle around $ABPX$.
+  By symmetry, we can say the same about the angle bisector of $\angle PCB$ --
+  that is, it contains the center of the circumcircle of $APB$, as desired.
+\end{soln}
 \end{document}
 
