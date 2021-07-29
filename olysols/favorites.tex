@@ -3,6 +3,11 @@
 \usepackage{amsmath, amssymb, amsthm, bbm}
 \usepackage{booktabs, verbatim, graphicx, framed}
 \usepackage[sexy, hints]{evan}
+\begin{asydef}
+	defaultpen(fontsize(9pt));
+	pointfontsize = 9;
+	markscalefactor=0.01;
+\end{asydef}
 \title{My Favorite Olympiad Problems!}
 \author{Anay Aggarwal}
 \begin{document}
@@ -121,6 +126,20 @@ Algebra is the best.
   $$f(x^2-y)=x^2+y$$
   Since $f(b)=\pm b$, then $y=0\to f(y)=0=y$, or $x=0\to f(x)=0=-x$.
   The alternative case is isomorphic.
+\end{soln}
+\begin{example}
+  [Titu Andreescu]
+  Let $0\le a,b,c,d\le 1$. Prove that
+  $$(1-a)(1-b)(1-c)(1-d)+a+b+c+d\ge 1$$
+\end{example}
+\begin{soln}
+  Fix $b,c,d$. Then the left-hand side is a convex function in $a$,
+  specifically linear. Hence the minimum is attained at one of the end points.
+  Repeating this argument for $b,c,d$ we deduce that in order for the minimum
+  to occur, $a,b,c,d\in\{0,1\}$ must hold.
+  If at least one of the numbers is $1$, $LHS=a+b+c+d\ge 1$. \\
+  If all are zero, it clearly holds true, as desired. \\ \\
+  The technique used brushes up on \textit{smoothing}.
 \end{soln}
 \section{Combinatorics}
 Combinatorics is both the life and death of me.
@@ -305,10 +324,10 @@ Number theory is not my favorite due to the casework, but there are some nice on
   \begin{lemma}
     $\sum_{d|n}|\mu(d)|=2^{\omega(n)}$
   \end{lemma}
-    Let $n=\prod p_i^{a_i}$. In order for the mobius function to be
-    non-zero, if $d=\prod p_i^{d_i}$, all $d_i<2$. Hence there are two options,
-    0 and 1, to choose each $d_i$. There are $\omega(n)$ such $d_i$, completing
-    the proof.
+  Let $n=\prod p_i^{a_i}$. In order for the mobius function to be
+  non-zero, if $d=\prod p_i^{d_i}$, all $d_i<2$. Hence there are two options,
+  0 and 1, to choose each $d_i$. There are $\omega(n)$ such $d_i$, completing
+  the proof.
   \newline \newline
   Back to the main problem. Note that $\mu^2(n)=|\mu(n)|$.
   By symmetry, the summation on the RHS is
@@ -325,67 +344,67 @@ Number theory is not my favorite due to the casework, but there are some nice on
   Since the convolution function is commutative and associative,
   $$|\mu(n)|=((\mu*\mathbbm{1})*|\mu(n)|)(n)$$
   But the function
-  $$\epsilon_0(n)=(\mu*\mathbbm{1})(n)=\begin{cases}1 & n=1 \\ 0 & \mathrm{else}\end{cases}$$
-  Hence
-  $$(\epsilon_0(n)*|\mu(n)|)(n)=\sum_{d|n}\epsilon_0(d)|\mu\left(\frac{n}{d}\right)|$$
-  Using the piecewise definition of $\epsilon_0$, all terms cancel except the $d=1$ term.
-  This is simply $|\mu(n)|$, as desired.
+  $$\varepsilon_0(n)=(\mu*\mathbbm{1})(n)=\begin{cases}1 & n=1 \\ 0 & \mathrm{else}\end{cases}$$
+    Hence
+    $$(\varepsilon_0(n)*|\mu(n)|)(n)=\sum_{d|n}\varepsilon_0(d)|\mu\left(\frac{n}{d}\right)|$$
+    Using the piecewise definition of $\varepsilon_0$, all terms cancel except the $d=1$ term.
+    This is simply $|\mu(n)|$, as desired.
 \end{soln}
 \begin{example}
   [Henry John Stephen Smith]
   Define the matrix
-  $$A=:[a_{i,j}]_{n\times n}|a_{i,j}=\gcd(i,j)$$
+  $$A:=[a_{i,j}]_{n\times n}|a_{i,j}=\gcd(i,j)$$
   Find a closed-form for $\det(A)$.
 \end{example}
- This is quite a difficult problem. The idea is to reduce the matrix using elementary row operations.
- \begin{lemma}
-   [The Algorithm]
-   Consider the algorithm as follows: For each $1\le i\le n$, subtract each row $R_{ik}$ by $R_i$ with $1<k$ and $ik\le n$.
-   When this algorithm is run on the matrix $A$ to become $A'$, $A'$ is an upper triangular matrix.
- \end{lemma}
- To prove this lemma, we simply need to show that $a_{ij}=0$ whenever $j<i$ in the new matrix. Notice that for each $d|j, d<i$ we are subtracting
-  $a_{id}$ from $a_{ij}$. Using this, it's easy to see that the lemma is true.
- \begin{lemma}
-   Each $a_{k,k}=\varphi(k)$ after the algorithm has been run.
- \end{lemma}
-  Notice that $\gcd(k,k)=k$, so the element was originally just $k$. It's easy to see that the algorithm spits out what is essentially
-  the definition of the totient function.
- \newline \newline
-  Using the two lemmas, the determinant is simply $\varphi(1)\varphi(2)\cdots\varphi(n)$.
-  \newpage
-  \begin{example}
-    Let $a_1, a_2, \cdots, a_{2n+1}$ be a set of integers such that if any one
-    of them is removed, the remaining ones can be divided into two sets of
-    $n$ integers with equal sums. Prove that $a_1=a_2=\cdots=a_{2n+1}$.
-  \end{example}
-  \begin{soln}
-    I will use a (questionable) version of infinite descent. All sums in this solution
-    are from $1$ to $2n+1$.
-    \\ \\
-    Notice that for all $1\le i\le 2n+1$,
-    $$2|\left(\sum a_k\right)-a_i$$
-    Thus $a_i$ remains constant modulo $2$.
-    If $a_1\equiv 0\pmod{2}$, then let $a_i=2b_i$ for all $i$.
-    Using the fact that the sum of any set of numbers is now even, we get that
-    $$4|2\left(\sum b_k\right)-2b_i$$
-    $$2|\left(\sum b_k\right)-b_i$$
-    Which is identical to our equation for $a_n$. Thus it suffices to deal with
-    the odd numbers. I will prove that we can find an infinitely large $t$ such
-    that $a_i$ is constant mod $t$. In the even case, we just add a factor of
-    $2$ to $t$. So it suffices to show that the odd case lets us add some factor
-    onto $t$ (this is the questionable part \-\- I'm pretty sure it works but is hard to explain).
-    \\ \\
-    Onto the odd case. Let $a_i=2b_i+1$ for all $i$. If the sum is $S$,
-    $$2S=2\sum b_k+2n+1-2b_i-1=2\left(\sum b_k+n-b_i\right)$$
-    Hence
-    $$S=\sum b_k +n-b_i$$
-    For all $i$. Suppose $S$ is the sum of $r$ elements of the $a$ sequence. If $r$ is odd, $S$ is odd. If $r$ is even, $S$ is even (since $a_i$ is always odd).
-    But $\sum b_k$ is odd, $b_i$ is odd, hence $S\equiv r\equiv n\pmod{2}$. If $n$ is even, then $\sum b_k-b_i$ is even, hence we get back to square one,
-    which is a good thing since we're descending. If $n$ is odd, then $\sum b_k -b_i$ is even, and we're again back to square one!
-    \\ \\
-    \textbf{Conclusion: } At each stage of this simplifiication, we add on a factor of two. Hence for any positive integer $k$,
-    $a_i$ is constant mod $2^k$. Choose some $k>\max(a_1, a_2,\cdots, a_{2n+1})$, then $a_i\pmod{2^k}=a_i$, thus $a_i$ itself is constant, done.
-  \end{soln}
+This is quite a difficult problem. The idea is to reduce the matrix using elementary row operations.
+\begin{lemma}
+  [The Algorithm]
+  Consider the algorithm as follows: For each $1\le i\le n$, subtract each row $R_{ik}$ by $R_i$ with $1<k$ and $ik\le n$.
+  When this algorithm is run on the matrix $A$ to become $A'$, $A'$ is an upper triangular matrix.
+\end{lemma}
+To prove this lemma, we simply need to show that $a_{ij}=0$ whenever $j<i$ in the new matrix. Notice that for each $d|j, d<i$ we are subtracting
+$a_{id}$ from $a_{ij}$. Using this, it's easy to see that the lemma is true.
+\begin{lemma}
+  Each $a_{k,k}=\varphi(k)$ after the algorithm has been run.
+\end{lemma}
+Notice that $\gcd(k,k)=k$, so the element was originally just $k$. It's easy to see that the algorithm spits out what is essentially
+the definition of the totient function.
+\newline \newline
+Using the two lemmas, the determinant is simply $\varphi(1)\varphi(2)\cdots\varphi(n)$.
+\newpage
+\begin{example}
+  Let $a_1, a_2, \cdots, a_{2n+1}$ be a set of integers such that if any one
+  of them is removed, the remaining ones can be divided into two sets of
+  $n$ integers with equal sums. Prove that $a_1=a_2=\cdots=a_{2n+1}$.
+\end{example}
+\begin{soln}
+  I will use a (questionable) version of infinite descent. All sums in this solution
+  are from $1$ to $2n+1$.
+  \\ \\
+  Notice that for all $1\le i\le 2n+1$,
+  $$2|\left(\sum a_k\right)-a_i$$
+  Thus $a_i$ remains constant modulo $2$.
+  If $a_1\equiv 0\pmod{2}$, then let $a_i=2b_i$ for all $i$.
+  Using the fact that the sum of any set of numbers is now even, we get that
+  $$4|2\left(\sum b_k\right)-2b_i$$
+  $$2|\left(\sum b_k\right)-b_i$$
+  Which is identical to our equation for $a_n$. Thus it suffices to deal with
+  the odd numbers. I will prove that we can find an infinitely large $t$ such
+  that $a_i$ is constant mod $t$. In the even case, we just add a factor of
+  $2$ to $t$. So it suffices to show that the odd case lets us add some factor
+  onto $t$ (this is the questionable part \-\- I'm pretty sure it works but is hard to explain).
+  \\ \\
+  Onto the odd case. Let $a_i=2b_i+1$ for all $i$. If the sum is $S$,
+  $$2S=2\sum b_k+2n+1-2b_i-1=2\left(\sum b_k+n-b_i\right)$$
+  Hence
+  $$S=\sum b_k +n-b_i$$
+  For all $i$. Suppose $S$ is the sum of $r$ elements of the $a$ sequence. If $r$ is odd, $S$ is odd. If $r$ is even, $S$ is even (since $a_i$ is always odd).
+  But $\sum b_k$ is odd, $b_i$ is odd, hence $S\equiv r\equiv n\pmod{2}$. If $n$ is even, then $\sum b_k-b_i$ is even, hence we get back to square one,
+  which is a good thing since we're descending. If $n$ is odd, then $\sum b_k -b_i$ is even, and we're again back to square one!
+  \\ \\
+  \textbf{Conclusion: } At each stage of this simplifiication, we add on a factor of two. Hence for any positive integer $k$,
+  $a_i$ is constant mod $2^k$. Choose some $k>\max(a_1, a_2,\cdots, a_{2n+1})$, then $a_i\pmod{2^k}=a_i$, thus $a_i$ itself is constant, done.
+\end{soln}
 \section{Geometry}
 I'm not great at geometry, but here we go.
 \begin{example}
@@ -458,6 +477,28 @@ I'm not great at geometry, but here we go.
   Hence $\angle CA_1D+\angle B=\angle A+\angle B+\angle C=180$, thus
   $BA_1DC_1$ is cyclic. Hence $\angle BCA_1=A$ and $\angle BA_1C=\angle C$,
   implying the result exactly the same way as the previous problem.
+\end{soln}
+\begin{example}
+  In $\triangle ABC$, $BCHI$ is cyclic. Prove that $O$ lies on the circle containing $B,C,H,I$.
+\end{example}
+\begin{soln}
+  The cyclic condition implies $\angle BHC=\angle BIC$. Thus $90+\frac{A}{2}=180-A\to A=60$.
+  But then $\angle BOC=2\cdot 60=120$, and $\angle BHC=\angle BIC=120$ as well, so they all lie on the same circle.
+\end{soln}
+\begin{example}
+  [USAMO]
+  Let the diagonals of a convex quadrilateral ABCD intersect
+  at P. If $AC\perp BD$, prove that the reflections of P in AB, BC, CD, DA lie on a
+  circle.
+\end{example}
+\begin{soln}
+  Notice that the quadrilateral $P_1P_2P_3P_4$ is similar to the quadrilateral formed by the perpendiculars from $P$ to
+  $AB,BC,CD,DA$ (the real reason behind this is that a homothety sends the quadrilaterals to each other).
+  Hence we must prove that this new quadrilateral, say $XYZW$ is also cyclic.
+  Since $AXPY$ etc. are cyclic,
+  $$\angle XWP+\angle XYP=\angle XBE+\angle XAE=90$$
+  and likewise $\angle EYZ+\angle EWZ=90$. This implies that $XYZW$ is cyclic,
+  as desired.
 \end{soln}
 \end{document}
 
