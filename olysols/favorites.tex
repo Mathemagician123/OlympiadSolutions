@@ -517,5 +517,20 @@ I'm not great at geometry, but here we go.
   By symmetry, we can say the same about the angle bisector of $\angle PCB$ --
   that is, it contains the center of the circumcircle of $APB$, as desired.
 \end{soln}
+\begin{example}
+  [IMO 2009]
+  Let $ ABC$ be a triangle with circumcentre $ O$. The points $ P$ and $ Q$ are interior points of the sides $ CA$ and $ AB$ respectively. Let $ K,L$ and $ M$ be the midpoints of the segments $ BP,CQ$ and $ PQ$. respectively, and let $ \Gamma$ be the circle passing through $ K,L$ and $ M$. Suppose that the line $ PQ$ is tangent to the circle $ \Gamma$. Prove that $ OP = OQ.$
+\end{example}
+\begin{soln}
+  Since $MQ$ is a tangent, $\angle MLK=\angle QML$. But $MK||AB$, so $\angle MLK=\angle QML=\angle AQP$. Similarly, $\angle MKL=\angle APQ$.
+  Thus $\triangle APQ\sim\triangle MKL$. Hence
+  $$\frac{AP}{MK}=\frac{AQ}{ML}\implies \frac{AP}{AQ}=\frac{MK}{ML}\stackrel{MK||AB, ML||AC}{=}\frac{BQ}{PC}$$
+  So $AP\cdot PC=AQ\cdot BP$. Let $\omega$ be the circumcircle of $\triangle ABC$. The equation then implies that
+  $$\mathrm{pow}(P,\omega)=\mathrm{pow}(Q,\omega)$$
+  Thus
+  $$R^2-OP^2=R^2-OQ^2\implies OP=OQ$$
+  Where $R$ is the radius of $\omega$.
+  \begin{center}\includegraphics[scale=0.3]{IMO2009P2.png}\end{center}
+\end{soln}
 \end{document}
 
