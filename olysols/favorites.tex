@@ -541,5 +541,13 @@ I'm not great at geometry, but here we go.
   $$\frac{BA'}{A'C}\frac{CB'}{B'A}\frac{AC'}{C'B}=\left(\frac{BP}{CP}\frac{\sin \gamma}{\sin(2\alpha+\beta+\gamma)}\right)\left(\frac{CP}{AP}\frac{\sin\beta}{\sin\gamma}\right)\left(\frac{AP}{BP}\frac{\sin(2\alpha+\beta+\gamma)}{\sin\beta}\right)=1$$
   So we're done by Menelaus (Refer to the picture 2012AMOP5 in this directory).
 \end{soln}
+\begin{example}
+  [ISL 2005]
+  Given a triangle $ABC$ satisfying $AC+BC=3\cdot AB$. The incircle of triangle $ABC$ has center $I$ and touches the sides $BC$ and $CA$ at the points $D$ and $E$, respectively. Let $K$ and $L$ be the reflections of the points $D$ and $E$ with respect to $I$. Prove that the points $A$, $B$, $K$, $L$ lie on one circle.
+\end{example}
+\begin{soln}
+  \begin{center}\includegraphics[scale=0.3]{image.png}\end{center}
+  It's well known that $CE=s-c, CP=s$. But the length condition tells us that $c=\frac{s}{2}$, hence $\frac{CE}{CP}=\frac{1}{2}$. But $\triangle CIE\sim\triangle CI_CP$ by AA, so $CI=II_C$. Since $EI=LI$ and $\angle I_CIL=\angle EIC$ by vertical angles, $\triangle ILI_C\cong \triangle IEC$ by SAS. Hence $\angle IEC=\angle ILI_C=90$. But it's well known that $I,A,B,I_C$ are concyclic with $II_C$ as a diameter, so this condition implies that $L$ lies on $(IABI_C)$. By symmetry, $K$ does as well, so we're done.
+\end{soln}
 \end{document}
 
