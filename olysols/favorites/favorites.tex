@@ -562,5 +562,19 @@ I'm not great at geometry, but here we go.
   \begin{center}\includegraphics[scale=0.3]{image.png}\end{center}
   It's well known that $CE=s-c, CP=s$. But the length condition tells us that $c=\frac{s}{2}$, hence $\frac{CE}{CP}=\frac{1}{2}$. But $\triangle CIE\sim\triangle CI_CP$ by AA, so $CI=II_C$. Since $EI=LI$ and $\angle I_CIL=\angle EIC$ by vertical angles, $\triangle ILI_C\cong \triangle IEC$ by SAS. Hence $\angle IEC=\angle ILI_C=90$. But it's well known that $I,A,B,I_C$ are concyclic with $II_C$ as a diameter, so this condition implies that $L$ lies on $(IABI_C)$. By symmetry, $K$ does as well, so we're done.
 \end{soln}
+\begin{example}
+  [USAMO 1974 P3]
+  Two boundary points of a ball of radius 1 are joined by a curve contained in the ball and having length less than 2. Prove that the curve is contained entirely within some hemisphere of the given ball.
+\end{example}
+\begin{center}\includegraphics[scale=0.3]{USAMO1974P3.png}\end{center}
+\begin{soln}
+  Suppose the two points are $A,B$, and the center of the sphere is $O$. Let $OA$ hit the circle for the second time at $A'$.
+  Draw the plane $\mathcal{P}$ such that $\mathcal{P}\perp BA'$ and $O\in\mathcal{P}$ (which is uniquely determined by whatever property).
+  I claim that the curve lies on one hemisphere of the sphere cut by $\mathcal{P}$, which is a much stronger formulation.
+  Suppose otherwise, then the curve $\mathcal{C}$ hits $\mathcal{P}$ at $C'$. Reflect the part of $\mathcal{C}$ hitting $B,C'$ over to pass through $A',C'$.
+  Length is preserved, so we just need to show that this reflection plus the other part of $\mathcal{C}$ has length greater than $2$.
+  This is true since it takes $A$ to its diametrically opposite point, $A'$. \\ \\
+  Note: This problem generalizes nicely, its an exercise to generalize and provide the proof.
+\end{soln}
 \end{document}
 
