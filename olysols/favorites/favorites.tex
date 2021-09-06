@@ -4,9 +4,9 @@
 \usepackage{booktabs, verbatim, graphicx, framed}
 \usepackage[sexy, hints]{evan}
 \begin{asydef}
-	defaultpen(fontsize(9pt));
-	pointfontsize = 9;
-	markscalefactor=0.01;
+  defaultpen(fontsize(9pt));
+  pointfontsize = 9;
+  markscalefactor=0.01;
 \end{asydef}
 \title{My Favorite Olympiad Problems!}
 \author{Anay Aggarwal}
@@ -560,21 +560,40 @@ I'm not great at geometry, but here we go.
 \end{example}
 \begin{soln}
   \begin{center}\includegraphics[scale=0.3]{image.png}\end{center}
-  It's well known that $CE=s-c, CP=s$. But the length condition tells us that $c=\frac{s}{2}$, hence $\frac{CE}{CP}=\frac{1}{2}$. But $\triangle CIE\sim\triangle CI_CP$ by AA, so $CI=II_C$. Since $EI=LI$ and $\angle I_CIL=\angle EIC$ by vertical angles, $\triangle ILI_C\cong \triangle IEC$ by SAS. Hence $\angle IEC=\angle ILI_C=90$. But it's well known that $I,A,B,I_C$ are concyclic with $II_C$ as a diameter, so this condition implies that $L$ lies on $(IABI_C)$. By symmetry, $K$ does as well, so we're done.
+    It's well known that $CE=s-c, CP=s$. But the length condition tells us that $c=\frac{s}{2}$, hence $\frac{CE}{CP}=\frac{1}{2}$. But $\triangle CIE\sim\triangle CI_CP$ by AA, so $CI=II_C$. Since $EI=LI$ and $\angle I_CIL=\angle EIC$ by vertical angles, $\triangle ILI_C\cong \triangle IEC$ by SAS. Hence $\angle IEC=\angle ILI_C=90$. But it's well known that $I,A,B,I_C$ are concyclic with $II_C$ as a diameter, so this condition implies that $L$ lies on $(IABI_C)$. By symmetry, $K$ does as well, so we're done.
 \end{soln}
 \begin{example}
   [USAMO 1974 P3]
   Two boundary points of a ball of radius 1 are joined by a curve contained in the ball and having length less than 2. Prove that the curve is contained entirely within some hemisphere of the given ball.
 \end{example}
 \begin{center}\includegraphics[scale=0.3]{USAMO1974P3.png}\end{center}
-\begin{soln}
-  Suppose the two points are $A,B$, and the center of the sphere is $O$. Let $OA$ hit the circle for the second time at $A'$.
-  Draw the plane $\mathcal{P}$ such that $\mathcal{P}\perp BA'$ and $O\in\mathcal{P}$ (which is uniquely determined by whatever property).
-  I claim that the curve lies on one hemisphere of the sphere cut by $\mathcal{P}$, which is a much stronger formulation.
-  Suppose otherwise, then the curve $\mathcal{C}$ hits $\mathcal{P}$ at $C'$. Reflect the part of $\mathcal{C}$ hitting $B,C'$ over to pass through $A',C'$.
-  Length is preserved, so we just need to show that this reflection plus the other part of $\mathcal{C}$ has length greater than $2$.
-  This is true since it takes $A$ to its diametrically opposite point, $A'$. \\ \\
-  Note: This problem generalizes nicely, its an exercise to generalize and provide the proof.
-\end{soln}
+  \begin{soln}
+    Suppose the two points are $A,B$, and the center of the sphere is $O$. Let $OA$ hit the circle for the second time at $A'$.
+    Draw the plane $\mathcal{P}$ such that $\mathcal{P}\perp BA'$ and $O\in\mathcal{P}$ (which is uniquely determined by whatever property).
+    I claim that the curve lies on one hemisphere of the sphere cut by $\mathcal{P}$, which is a much stronger formulation.
+    Suppose otherwise, then the curve $\mathcal{C}$ hits $\mathcal{P}$ at $C'$. Reflect the part of $\mathcal{C}$ hitting $B,C'$ over to pass through $A',C'$.
+    Length is preserved, so we just need to show that this reflection plus the other part of $\mathcal{C}$ has length greater than $2$.
+    This is true since it takes $A$ to its diametrically opposite point, $A'$. \\ \\
+    Note: This problem generalizes nicely, its an exercise to generalize and provide the proof.
+  \end{soln}
+  \begin{example}
+    [Crux 4664]
+    Let $ABCDEF$ be a cyclic hexagon such that $AD,BE,CF$ concur and
+    $AB=CD=EF=\frac{AF+BC+DE}{3}$. Prove that it's a regular hexagon.
+  \end{example}
+  \begin{soln}
+    Suppose that $AD,BE,CF$ concur at $O$. Angles $\angle ABO,\angle EDO$ are equal since they both subtend arc $AE$. By vertical angles, $\angle AOB=\angle EOD$, hence $\triangle ABO\sim\triangle EDO$. Thus
+    $$\frac{AB}{DE}=\frac{AO}{EO}$$
+    Analogously,
+    $$\frac{CD}{AF}=\frac{CO}{AO}$$
+    $$\frac{EF}{CB}=\frac{EO}{CO}$$
+    Hence
+    $$\frac{AB\cdot CD\cdot EF}{CB\cdot AF\cdot DE}=1$$
+    Since $AB=CD=EF=\frac{CB+AF+DE}{3}$, we have that
+    $$\frac{CB+AF+DE}{3}=\sqrt[3]{CB\cdot AF\cdot DE}$$
+    However, the AM-GM inequality tells us that
+    $$\frac{CB+AF+DE}{3}\ge \sqrt[3]{CB\cdot AF\cdot DE}$$
+    with equality at $CB=AF=DE$. Thus all the sides are equal and the hexagon is regular.
+  \end{soln}
 \end{document}
 
