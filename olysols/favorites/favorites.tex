@@ -154,6 +154,22 @@ Algebra is the best.
   $$27=xy+yz+xz\ge 3\sqrt[3]{(xyz)^2}$$
   Which gives the desired inequality.
 \end{soln}
+\begin{example}
+  [Crux 4698]
+  Let $x_1,\cdots,x_n>0$ be real numbers such that $x_1+x_2+\cdots+x_n=1$. Prove that
+  $$\sum_{i=1}^{n}x_i\ln(1+x_i)<\ln 2$$
+\end{example}
+\begin{soln}
+  Consider only $n\ge 2$, since it's obvious for $n=1$.
+  Take all indices of summations/products to be from $1$ to $n$. Writing the LHS using log rules, it's equivalent to
+  $$\prod (1+x_i)^{x_i}<2$$
+  Firstly, note that, by Cauchy-Schwarz,
+  $$\left(\sum x_i\right)^2\ge n\sum x_i^2$$
+  $$\sum x_i^2\le \frac{1}{n}<1$$
+  Then we can use Young's inequality to get
+  $$\prod (1+x_i)^{x_i}\le \sum x_i(1+x_i)=\sum x_i+\sum x_i^2<2$$
+  As desired.
+\end{soln}
 \section{Combinatorics}
 Combinatorics is both the life and death of me.
 \begin{example}
