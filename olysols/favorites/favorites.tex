@@ -170,6 +170,38 @@ Algebra is the best.
   $$\prod (1+x_i)^{x_i}\le \sum x_i(1+x_i)=\sum x_i+\sum x_i^2<2$$
   As desired.
 \end{soln}
+\begin{example}
+  [AMSP Algebra 3.5 Week 2 Test Problem 4/5]
+  Show that for any $n\ge 2$ and $a_1,\cdots, a_n>0$ and $0\le x<y$,
+  $$\left(\sum_{i=1}^n a_i^x\right)\left(\sum_{i=1}^n a_i^{-x}\right)\le \left(\sum_{i=1}^n a_i^y\right)\left(\sum_{i=1}^n a_i^{-y}\right)$$
+\end{example}
+\begin{soln}
+  This is equivalent to proving that the function
+$$f(t)=\left(\sum_{i=1}^n a_i^t\right)\left(\sum_{i=1}^n \frac{1}{a_i^t}\right)$$
+is non-decreasing, i.e. $f'(t)\ge 0$ for all $t>0$. By the product rule,
+$$f'(t)=\left(\sum_{i=1}^n a_i^t\ln(a_i)\right)\left(\sum_{i=1}^n \frac{1}{a_i^t}\right)-\left(\sum_{i=1}^n a_i^t\right)\left(\sum_{i=1}^n \frac{\ln(a_i)}{a_i^t}\right)$$
+Thus we need to show that for all $t>0$
+$$\left(\sum_{i=1}^n a_i^t\ln(a_i)\right)\left(\sum_{i=1}^n a_i^{-t}\right)\ge \left(\sum_{i=1}^n a_i^t\right)\left(\sum_{i=1}^n a_i^{-t}\ln(a_i)\right)$$
+For simplicity, write this as $S_n\ge P_n$. We will prove this by induction on $n$, but first we need a lemma:
+\\ \\
+\textbf{Lemma:}  For any positive reals $x$ and $t$,
+$$x^t\ln(x)\ge x^{-t}\ln(x)$$
+\\ \\
+\textbf{Proof:} If $x\ge 1$, it rearranges to $x^{2t}\ge 1$, which is true. If $x<1$, it rearranges to $x^{2t}\le 1$, which is true, as desired.
+\\ \\
+Now we proceed with the induction. The base case is $n=2$. This simply reduces to our lemma with $x=\frac{a_1}{a_2}$. For the inductive step, we write
+$$S_{n+1}=S_n+a_{n+1}^t\ln(a_{n+1})(a_1^{-t}+\cdots+a_n^{-t})+a_{n+1}^{-t}(a_1^t\ln(a_1)+\cdots+a_n^t\ln(a_n))+\ln(a_{n+1})$$
+$$P_{n+1}=P_n+a_{n+1}^{-t}\ln(a_{n+1})(a_1^t+\cdots+a_n^t)+a_{n+1}^t(a_1^{-t}\ln(a_1)+\cdots+a_n^{-t}\ln(a_n))+\ln(a_{n+1})$$
+Thus we need to show that
+
+$$\ln(a_{n+1})\left(\sum_{i=1}^n \left(\frac{a_{n+1}}{a_i}\right)^t \right)+\sum_{i=1}^n \left(\frac{a_i}{a_{n+1}}\right)^t\ln(a_i)\ge \ln(a_{n+1})\left(\sum_{i=1}^n \left(\frac{a_i}{a_{n+1}}\right)^t\right)+\sum_{i=1}^n \left(\frac{a_{n+1}}{a_i}\right)^t\ln(a_i)$$
+
+This is equivalent to
+
+$$\sum_{i=1}^n \left(\frac{a_{n+1}}{a_i}\right)^t \ln\left(\frac{a_{n+1}}{a_i}\right)\ge \sum_{i=1}^n \left(\frac{a_{i}}{a_{n+1}}\right)^t \ln\left(\frac{a_{n+1}}{a_i}\right)$$
+
+Which is true by our lemma.
+\end{soln}
 \section{Combinatorics}
 Combinatorics is both the life and death of me.
 \begin{example}
@@ -249,6 +281,29 @@ Combinatorics is both the life and death of me.
   This is obvious since swapping two walnuts of the same status doesn't change anything about the statuses at each index at all.
   \newline \newline
   Now, the number of pairs of adjacent uneaten walnuts can't remain the same throughout, so we must have swapped an eaten one with an uneaten one.
+\end{soln}
+\begin{example}
+  [ELMO 2022/1]
+  Let $n>1$ be an integer. The numbers $1,\cdots, n$ are written on a board. Aliceurill
+  and Bobasaur take turns circling an uncircled number on the board, with Aliceurill
+  going first. When the product of the circled numbers becomes a multiple of $n$, the
+  game ends and the last player to have circled a number loses. For which values of
+  $n$ can Bobasaur guarantee victory?
+\end{example}
+\begin{soln}
+  The answer is when $n$ is an odd prime. Clearly, A can win if $n=2$ by choosing $1$.
+  If $n$ is an odd prime, A and B take turns circling elements from the set
+  $\{1,2,\cdots, n-1\}$. A is forced to circle n, thus A loses, and B can guarantee a
+  victory. Now suppose that $n$ is not prime and
+  $$n=p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_k^{\alpha_k}$$
+  is $n$'s decomposition, where $p_k\ne 2$. I claim that A can guarantee a victory in this case. A will open by circling
+  $\frac{n}{p_k^{\alpha_k}}$. There are $n\left(1-\frac{1}{p_k}\right)-1$ integers
+  that do not have a factor of $p_k$ in them. This number is odd. If B immediately
+  circles $p_k^{\alpha_k-1}$, A can keep choosing from the integers with no $p_k$ in them,
+  forcing B to choose an integer with $p_k$ in it, thus losing. If B chooses $p_k^r$,
+  A can choose $p_k^{\alpha_k-r-1}$. Then B is forced to choose the last $p_k$, thus losing.
+  If B resists choosing integers with $p_k$, A can simply choose $p_k^{\alpha_k-1}$ and
+  eventually B is forced to choose an integer with $p_k$, thus losing.
 \end{soln}
 \section{Number Theory}
 Number theory is not my favorite due to the casework, but there are some nice ones here and there.
