@@ -1,0 +1,167 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm, bbm}
+\usepackage{booktabs, verbatim, graphicx, framed}
+\usepackage[sexy, hints]{evan}
+\title{My Favorite Computational Problems}
+\author{Anay Aggarwal}
+
+\begin{document}
+
+\maketitle
+\section{Introduction}
+This is a collection of some of my favorite computational problems. For many of these problems, I don't give full solutions. I give sketches with motivation, detailing all of the main steps of the problem. With 2023 contests in reference, the difficulty scale is as follows:
+\begin{center}
+  \begin{tabular}{|c|c|}
+    0-2 & \text{Late AMC 10/12 Range} \\ \\
+    3-4 & \text{AIME 8-11} \\ \\
+    5-6 & \text{AIME 12-15} \\ \\
+    7-8 & \text{HMMT February 8 - 9} \\ \\
+    9-10 & \text{HMMT February 10 - Late OMO}
+  \end{tabular}
+\end{center}
+Please note that the difficulty scale is very rough, and it is extremely subjective.
+\newpage
+\section{Hardness 0-2}
+\begin{example}
+  [By Manu Isaacs, for ARML PoTD]
+  Let $A,B,C,D,E$ be complex numbers such that $ABCDE=-34+45i$ and $A+B+C+D+E=10+5i$. Additionally, when plotted on the complex plane, the five numbers form a regular pentagon. Compute the area of the circle that circumscribes this pentagon.
+\end{example}
+\begin{soln}
+  We let the numbers be
+$$A=(2+i)+r\omega_1,$$
+$$B=(2+i)+r\omega_2,$$
+$$C=(2+i)+r\omega_3,$$
+$$D=(2+i)+r\omega_4,$$
+$$E=(2+i)+r\omega_5.$$
+Notice that $|r|$ is the radius of the circle circumscribing the pentagon. Here, $\omega_i$ are the 5th roots of unity. Using the above, we calculate $ABCDE$, keeping in mind that
+$$0=\sum \omega_i = \sum \omega_i\omega_j = \sum \omega_i \omega_j \omega_k = \sum \omega_i \omega_j \omega_k \omega_l$$
+and $\omega_1\omega_2\omega_3\omega_4\omega_5=1$:
+$$-34+45i=ABCDE = ((2+i)+r\omega_1)((2+i)+r\omega_2)((2+i)+r\omega_3)((2+i)+r\omega_4)((2+i)+r\omega_5)$$
+$$=(2+i)^5+r^5,$$
+$$4+4i=r^5,$$
+$$|r|=\sqrt{2},$$
+$$\pi r^2 = \boxed{2\pi.}$$
+
+\end{soln}
+\begin{example}
+   [2022 AIME I \#3]
+   In isosceles trapezoid $ABCD$, parallel bases $\overline{AB}$ and $\overline{CD}$ have lengths $500$ and $650$, respectively, and $AD=BC=333$. The angle bisectors of $\angle{A}$ and $\angle{D}$ meet at $P$, and the angle bisectors of $\angle{B}$ and $\angle{C}$ meet at $Q$. Find $PQ$.
+\end{example}
+\begin{soln}
+  I spent like 30 min on this and ended up coordinate bashing with the slope-tangent formula. The nice way is to note that the points on the angle bisector of $\angle A$ are equidistant from $AB$ and $AD$, and the points on the angle bisector of $\angle D$ are equidistant from $AD$ and $CD$, which implies that $P$ is on the midline, likewise with $Q$. Then let $AP$ hit $CD$ at $X$ and $BQ$ hit $CD$ at $Y$. Additionally,
+$$\angle ADX=180-\angle DAB=180-2\angle DAX\implies \angle ADX=\angle DXA\implies DA=DX$$Thus, since the midline has length $575$, the answer is
+$$575-2\left(\frac{333}{2}\right)=242$$
+\end{soln}
+\begin{example}
+  [2021 ARML Individual Round (P7?)]
+  A parallelogram with a vertex at $(0, 0)$ has its other three vertices as lattice points in the first quadrant. Given that the parallelogram has area $2021$, compute the maximum number of lattice points in the interior of the parallelogram.
+\end{example}
+\begin{soln}
+  Pick's theorem.
+\end{soln}
+\newpage
+\section{Hardness 3-4}
+\begin{example}
+  [AAIME 2023 P8 (\href{https://artofproblemsolving.com/community/c594864h2990894\_aaime\_released\_aamc\_year\_3\_\_aaime\_and\_}{Link})]
+  Let $x,y,z\in\mathbb{C}$ be such that the following holds:
+  $$xyz-4(x+y+z)=5$$
+  $$xy+yz+xz=7$$
+  $$(x^2+2)(y^2+2)(z^2+2)=246$$
+  Find the sum of all possible values of $(x^2+6)(y^2+6)(z^2+6)$
+\end{example}
+\begin{soln}
+  There are symmetric sums everywhere, except for that last equality. We need to figure out how to express this in terms
+  of symmetric sums. Expanding out gives a term $x^2y^2+y^2z^2+x^2z^2$ that's tough to deal with. So how do we get around this?
+  The idea is that $x^2+2=(x+2i)(x-2i)$ by the difference of squares. Now we're in business because the last equation becomes
+  $$(x+2i)(y+2i)(z+2i)(x-2i)(y-2i)(z-2i)=246$$
+  Now, instead of expanding out the first three terms and the second three terms, perhaps it is easier to just write the
+  polynomial $P(t)$ with roots $x,y,z$, say $P(t)=(t-x)(t-y)(t-z)=t^3+at^2+bt+c$. By vieta's, the first two equations helps
+  write $P(t)=t^3+at^2+7t+(4a-5)$. Then, the last condition gives $P(2i)P(-2i)=246$. This basically does it,
+  plugging in $t=\pm 2i$, we solve for $a$. Then we can compute $(x^2+6)(y^2+6)(z^2+6)$ as $P(6i)P(-6i)$.
+\end{soln}
+\begin{example}
+  [NIMO 2013 8.6, By Lewis Chen]
+  Let $f(n)=\varphi(n^3)^{-1}$, where $\varphi(n)$ denotes the number of positive
+\[ \frac{f(1)+f(3)+f(5)+\dots}{f(2)+f(4)+f(6)+\dots} = \frac{m}{n} \]
+where $m$ and $n$ are relatively prime positive integers. Compute $100m+n$.
+
+\end{example}
+\begin{soln}
+    Basically, we need to express the denominator in terms of the numerator. We can do this
+  if we acknowledge that $\{2,4,6,\cdots,\}=\{2^k\cdot a|k\ge 1, a\equiv 1\pmod{2}\}$. So it's natural to compute $f(2^k\cdot a)$ for $a$ odd.
+  Using multiplicativity of $\phi$, it's $\frac{f(a)}{2^{3k-1}}$. So for a fixed $a$, summing this over $k\ge 1$ we get $2/7$ be geometric series.
+  The answer is then $7/2\implies 702$.
+
+\end{soln}
+\newpage
+\section{Hardness 5-6}
+\begin{example}
+  [CARML P6, By Manu Isaacs (\href{https://artofproblemsolving.com/community/c594864h2492205}{Link})]
+  Alpha draws a diagram. He first draws two mutually tangent circles $\omega_1, \omega_2$ with radius $1$, tangent to horizontal line $\ell$. He then draws a circle $\omega_3$ tangent to $\omega_1, \omega_2, $and $\ell$. Finally, he draws $\omega_4$ tangent to $\omega_3, \omega_2,$ and $\ell$. From then on, if $i$ is odd, $\omega_i$ is tangent to $\omega_{i-2}$, $\omega_1$, and $\ell$. If $i$ is even, $\omega_i$ is tangent to $\omega_{i-2}$, $\omega_2$, and $\ell$. Let $f(\omega)$ be the circumference of circle $\omega$. Find $\sum_{n=1}^{\infty}f(\omega_n)$.
+\end{example}
+\begin{soln}
+  Let $a_i$ denote the radius of $\omega_i$. We have that $\frac{1}{\sqrt{a_3}}=2\implies a_3=\frac{1}{4}$ by Descartes circle theorem. In addition, $\frac{1}{\sqrt{a_4}}=3\implies a_4=\frac{1}{9}$. From then on, we split into two cases:
+\newline
+Case 1: $i$ is even. In this case, $\frac{1}{\sqrt{a_i}}=1+\frac{1}{\sqrt{a_{i-2}}}$. It's near trivial to verify with induction that $a_i=\frac{1}{\left(\frac{i}{2}+1\right)^2}$. This means that $\frac{1}{9}, \frac{1}{16}, ...$ occur exactly once here.
+\newline
+Case 2: $i$ is odd. The same phenomenon occurs here. We find that $\frac{1}{9}, \frac{1}{16}, ...$ occur exactly once here.
+\newline
+We have:
+$$\sum_{n=1}^{\infty}f(\omega_n)=\sum_{n=1}^{\infty}2\pi a_n=2\pi \sum_{n=1}^{\infty}a_n$$
+\newline
+We know that in $a_i$, each $\frac{1}{k^2}$ (with $k\in \{1,2,...\}$) occurs twice except when $k=2$, in which it occurs only once. Then:
+$$\sum_{n=1}^{\infty}a_n=2\left(\sum_{n=1}^{\infty}\frac{1}{n^2}\right)-\frac{1}{4}=\frac{\pi^2}{3}-\frac{1}{4}$$.
+The answer is $2\pi \left(\frac{\pi^2}{3}-\frac{1}{4}\right)=2\pi\left(\frac{4\pi^2-3}{12}\right)=\frac{4\pi^3-3\pi}{6}$.
+\end{soln}
+\begin{example}
+  [IOQM 2022-23 P20]
+  For an integer $n\ge 3$ and a permutation $\sigma=(p_{1},p_{2},\cdots ,p_{n})$ of $\{1,2,\cdots , n\}$, we say $p_{l}$ is a $landmark$ point if $2\le l\le n-1$ and $(p_{l-1}-p_{l})(p_{l+1}-p_{l})>0$. For example , for $n=7$,
+the permutation $(2,7,6,4,5,1,3)$ has four landmark points: $p_{2}=7$, $p_{4}=4$, $p_{5}=5$ and $p_{6}=1$. For a given $n\ge 3$ , let $L(n)$ denote the number of permutations of $\{1,2,\cdots ,n\}$ with exactly one landmark point. Find the maximum $n\ge 3$ for which $L(n)$ is a perfect square.
+\end{example}
+\begin{soln}
+  The key observation is that if $p_l$ is a landmark then $p_{l-1}, p_l, p_{l+1}$ is either strictly increasing or decreasing. Let $\sigma$ be a permutation with exactly $1$ landmark point. Say the point is $p_k$. By the key observation, $p_k$ is either $n$ or $1$. WLOG it's $1$, multiply by $2$ in the end (the bijection is replacing each element $\varepsilon$ with $(n+1)-\varepsilon$, so this is allowed). Then there are $k-1$ elements on the left, and the rest are on the right of the $1$. There are $\binom{n-1}{k-1}$ ways to choose the elements on the left. Once you choose these they have to be sorted, and the elements on the right also have to be sorted, so $\binom{n-1}{k-1}$ is precisely the number of ways to put $1$ at $p_k$. Summing over $2\le k\le n-1$, there are $2^{n-1}-2$ ways. Multiplying by $2$, $L(n)=2^n-4$. The answer extraction is relatively easy, $2^n-4=4(2^{n-2}-1)$, so $2^{n-2}=k^2+1$ for some $k$. If $n\ge 4$, $k^2\equiv 3\pmod{4}$ which is bad. Note $L(3)=4$, so the answer is $3$.
+\end{soln}
+\begin{example}
+  [2022 AIME I \#12]
+  For any finite set $X$, let $|X|$ denote the number of elements in $X.$ Define$$S_n = \sum |A \cap B|,$$where the sum is taken over all ordered pairs $(A, B)$ such that $A$ and $B$ are subsets of $\{1, 2, 3, …, n\}$ with $|A| = |B|.$ For example, $S_2 = 4$ because the sum is taken over the pairs of subsets$$(A, B) \in \{ (\emptyset, \emptyset), (\{1\}, \{1\}), (\{1\}, \{2\}), (\{2\}, \{1\}), (\{2\}, \{2\}), (\{1, 2\}, \{1, 2\})\},$$giving $S_2 = 0 + 1 + 0 + 0 + 1 + 2 = 4.$ Let $\frac{S_{2022}}{S_{2021}} = \frac{p}{q},$ where $p$ and $q$ are relatively prime positive integers. Find the remainder when $p + q$ is divided by $1000.$
+\end{example}
+\begin{soln}
+  Consider each element $x\in\{1,2,...,n\}$ individually. It's not hard to see that the number of ways to choose $A$ and $B$ such that $x\in A\cap B$ is
+$$\sum_{k=0}^{n-1}\binom{n-1}{k}^2=\binom{2(n-1)}{n-1}$$By considering each possibility for the number of elements in $A$ and summing. So by double-counting
+$$S_n=n\binom{2n-2}{n-1}$$And the rest is easy.
+\end{soln}
+\newpage
+\section{Hardness 7-8}
+\begin{example}
+  [Own, for ARML PoTD]
+  If $x_1, x_2, \cdots, x_{2022}$ are real numbers, find the maximum number of pairs $i,j$ with $|x_i-x_j|=2023$
+\end{example}
+\begin{soln}
+  It's probably not too difficult to guess this problem's answer. Proving it is the hard part.
+  Many problems with this sort of "connection" between numbers $i$ and $j$ involve graph theory.
+  In fact, it is extremely useful to construct the graph with vertices $x_1, \cdots, x_{2022}$,
+  with an edge between $x_i$ and $x_j$ if $|x_i-x_j|=2023$. The reason this works nicely is because the
+  expression is reflexive, so it's not a directed graph. Once you have this graph, you can prove that
+  it's bipartite relatively easily because it's easy to see that it has no odd cycle.
+  Then we want the maximum number of edges in a bipartite graph, which is easy.
+\end{soln}
+\begin{example}
+  [FidgetBoss\_4000 on AoPS]
+  Let $N$ denote the number of ordered $n$-tuples $(a_1, a_2, …, a_{n})$ (where $n \geq 1$) that satisfy
+$$\sum_{j=1}^{n} a_j = 2004$$and $a_i \in \{1, 2, …, 1001\}$ for all $1 \leq i\leq n$. Find the remainder when $N$ is divided by $1000$.
+\end{example}
+\begin{soln}
+  It's pretty clearly a genfunc problem. Naturally, let $P(x)=x+x^2+\cdots+x^{1001}$. Let $[Q(x)]_n$ denote the $x^n$ coefficient of a polynomial $Q(x)$. We want $\sum_{n\ge 0}[P(x)^n]_{2004}=\left[\left(\sum_{n\ge 0} P(x)^n\right)\right]_{2004}$. After two applications of geometric series, we want the coefficient of $x^{2004}$ in $\frac{1-x}{x^{1002}-2x+1}$. Split this into two terms and apply the expansion of $\frac{1}{1+t}$ and the binomial theorem.
+\end{soln}
+\newpage
+\section{Hardness 9-10}
+\begin{example}
+  [Vsamc on AoPS]
+  Let $F$ be the number of functions $f: \{1, 2, \cdots, 200 \} \rightarrow \{1, 2, \cdots, 200 \}$ with $f(f(x)) = 2x$ for $1\leq x \leq 100$. Find the highest power of $2$ dividing $F$.
+\end{example}
+\begin{soln}
+  There is a bijection to pairing up odd numbers between $1$ and $200$ (ordered pairs). First prove that $\nu_2(f(x))\le 1$ if $x$ is odd.
+  The answer comes up to $100!/50!$ which has $\nu_2$ of $50$.
+\end{soln}
+\end{document}
